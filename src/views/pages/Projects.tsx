@@ -28,14 +28,14 @@ const Projects = () => {
       <div className="group/header px-8 md:px-20">
         <div className="flex items-end gap-4">
           <div>
-            <span className="text-sm uppercase tracking-widest text-sky-500 font-medium">Portfolio</span>
-            <h1 className="md:text-6xl text-4xl font-light tracking-tight text-gray-800 dark:text-gray-200">Projects</h1>
+            <span className="page-subtitle">Portfolio</span>
+            <h1 className="page-title">Projects</h1>
           </div>
           
           {/* See All Button - Mobile always visible, Desktop on hover */}
           <button
             onClick={toggleShowAll}
-            className="flex md:flex items-center gap-2 text-xs text-gray-400 hover:text-sky-500 transition-all duration-300 mb-2 md:opacity-0 md:group-hover/header:opacity-100 md:-translate-x-2 md:group-hover/header:translate-x-0"
+            className="expand-button mb-2"
           >
             <span>{showAll ? 'Collapse' : 'Expand All'}</span>
             <FontAwesomeIcon
@@ -65,7 +65,7 @@ const Projects = () => {
             >
               {/* Index number */}
               <div className="flex-shrink-0">
-                <span className="text-5xl md:text-6xl font-extralight text-gray-200 dark:text-gray-800 group-hover:text-sky-500/30 transition-colors duration-300">
+                <span className="project-number">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
@@ -73,7 +73,7 @@ const Projects = () => {
               {/* Content */}
               <div className="flex-1">
                 <div className="flex items-center gap-3">
-                  <h3 className="text-xl md:text-2xl font-light tracking-wide text-gray-800 dark:text-gray-100 group-hover:text-sky-500 transition-colors duration-300">
+                  <h3 className="project-title">
                     {project.title}
                   </h3>
                   {/* Expand arrow - only visible on hover, hidden when showAll */}
@@ -86,7 +86,7 @@ const Projects = () => {
                     />
                   )}
                 </div>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl">
+                <p className="project-description">
                   {project.description}
                 </p>
               </div>

@@ -2,563 +2,794 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
+/* ============================================================================
+   BASE STYLES - Global element styling
+   ============================================================================ */
 
-/* Loading screen animations */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@layer base {
+  html {
+    @apply scroll-smooth;
   }
 }
 
-.animate-spin-slow {
-  animation: spin-slow 3s linear infinite;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Bump effect animation */
-@keyframes bump {
-  0%, 100% {
-    transform: scale(1);
+/* ============================================================================
+   ANIMATIONS - Core keyframes for animations used throughout the app
+   ============================================================================ */
+
+@layer components {
+  /* Loading screen spinner animation */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
-  50% {
-    transform: scale(1.1);
+
+  .animate-spin-slow {
+    animation: spin-slow 3s linear infinite;
   }
-}
 
-.bump-effect {
-  animation: bump 0.2s ease-out;
-}
-
-/* Glass effect utilities */
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dark .glass {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.glass-subtle {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.dark .glass-subtle {
-  background: rgba(15, 23, 42, 0.4);
-}
-
-/* Gradient orbs for visual interest */
-.gradient-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: -1;
-}
-
-.gradient-orb-1 {
-  top: 10%;
-  right: 10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-}
-
-.gradient-orb-2 {
-  bottom: 20%;
-  left: 5%;
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
-}
-
-.gradient-orb-3 {
-  top: 50%;
-  left: 40%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
-}
-
-.dark .gradient-orb-1 {
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
-}
-
-.dark .gradient-orb-2 {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
-}
-
-.dark .gradient-orb-3 {
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
-}
-
-/* Custom cursor - hide default on desktop */
-@media (hover: hover) and (pointer: fine) {
-  * {
-    cursor: none !important;
+  /* Bump effect for interactive elements */
+  @keyframes bump {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
   }
-}
 
-/* Show default cursor on touch devices */
-@media (hover: none) or (pointer: coarse) {
-  * {
-    cursor: auto !important;
+  .bump-effect {
+    animation: bump 0.2s ease-out;
   }
-}
 
-/* Matrix Code Rain Effect */
-.code-rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-  opacity: 0.15;
-}
-
-.dark .code-rain {
-  opacity: 0.25;
-}
-
-.code-rain::before,
-.code-rain::after {
-  content: "01001010 function() { } const => return async await <div> </> import export class interface type 10110101 { } [ ] && || !== === useState useEffect React TypeScript 11010010";
-  position: absolute;
-  top: -100%;
-  left: 0;
-  width: 100%;
-  height: 200%;
-  font-family: 'Courier New', monospace;
-  font-size: 10px;
-  line-height: 1.5;
-  color: #38bdf8;
-  word-wrap: break-word;
-  word-break: break-all;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  animation: code-fall 20s linear infinite;
-  white-space: pre-wrap;
-  letter-spacing: 8px;
-}
-
-.code-rain::after {
-  left: 50%;
-  animation-delay: -10s;
-  color: #8b5cf6;
-}
-
-@keyframes code-fall {
-  0% {
-    transform: translateY(0);
+  /* Slide up animation for staggered reveals */
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  100% {
-    transform: translateY(50%);
+
+  /* Fade in animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
-}
 
-/* Additional rain columns using box-shadow technique */
-.code-rain-columns {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.code-rain-columns span {
-  position: absolute;
-  top: -100vh;
-  font-family: 'Courier New', monospace;
-  font-size: 18px;
-  color: #38bdf8;
-  opacity: 0.2;
-  animation: rain-drop linear infinite;
-  text-shadow: 0 0 10px currentColor;
-}
-
-.dark .code-rain-columns span {
-  opacity: 0.35;
-}
-
-.code-rain-columns span:nth-child(1) { left: 3%; animation-duration: 15s; animation-delay: 0s; }
-.code-rain-columns span:nth-child(2) { left: 10%; animation-duration: 18s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(3) { left: 17%; animation-duration: 12s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(4) { left: 24%; animation-duration: 20s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(5) { left: 31%; animation-duration: 14s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(6) { left: 38%; animation-duration: 17s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(7) { left: 45%; animation-duration: 13s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(8) { left: 52%; animation-duration: 19s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(9) { left: 59%; animation-duration: 16s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(10) { left: 66%; animation-duration: 14s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(11) { left: 73%; animation-duration: 21s; animation-delay: -6s; }
-.code-rain-columns span:nth-child(12) { left: 80%; animation-duration: 11s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(13) { left: 87%; animation-duration: 16s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(14) { left: 94%; animation-duration: 18s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(15) { left: 97%; animation-duration: 15s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(16) { left: 5%; animation-duration: 13s; animation-delay: -7s; }
-.code-rain-columns span:nth-child(17) { left: 12%; animation-duration: 19s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(18) { left: 19%; animation-duration: 16s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(19) { left: 26%; animation-duration: 14s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(20) { left: 33%; animation-duration: 18s; animation-delay: -6s; }
-.code-rain-columns span:nth-child(21) { left: 40%; animation-duration: 15s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(22) { left: 47%; animation-duration: 17s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(23) { left: 54%; animation-duration: 20s; animation-delay: -8s; }
-.code-rain-columns span:nth-child(24) { left: 61%; animation-duration: 12s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(25) { left: 68%; animation-duration: 16s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(26) { left: 75%; animation-duration: 14s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(27) { left: 82%; animation-duration: 19s; animation-delay: -7s; }
-.code-rain-columns span:nth-child(28) { left: 89%; animation-duration: 13s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(29) { left: 96%; animation-duration: 17s; animation-delay: -6s; }
-.code-rain-columns span:nth-child(30) { left: 99%; animation-duration: 15s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(31) { left: 2%; animation-duration: 14s; animation-delay: -8s; }
-.code-rain-columns span:nth-child(32) { left: 7%; animation-duration: 18s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(33) { left: 14%; animation-duration: 12s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(34) { left: 21%; animation-duration: 16s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(35) { left: 28%; animation-duration: 13s; animation-delay: -7s; }
-.code-rain-columns span:nth-child(36) { left: 35%; animation-duration: 19s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(37) { left: 42%; animation-duration: 11s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(38) { left: 49%; animation-duration: 17s; animation-delay: -6s; }
-.code-rain-columns span:nth-child(39) { left: 56%; animation-duration: 15s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(40) { left: 63%; animation-duration: 14s; animation-delay: -8s; }
-.code-rain-columns span:nth-child(41) { left: 70%; animation-duration: 12s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(42) { left: 77%; animation-duration: 18s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(43) { left: 84%; animation-duration: 16s; animation-delay: -7s; }
-.code-rain-columns span:nth-child(44) { left: 91%; animation-duration: 13s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(45) { left: 98%; animation-duration: 19s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(46) { left: 4%; animation-duration: 11s; animation-delay: -6s; }
-.code-rain-columns span:nth-child(47) { left: 11%; animation-duration: 17s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(48) { left: 18%; animation-duration: 15s; animation-delay: -8s; }
-.code-rain-columns span:nth-child(49) { left: 25%; animation-duration: 14s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(50) { left: 32%; animation-duration: 12s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(51) { left: 39%; animation-duration: 18s; animation-delay: -7s; }
-.code-rain-columns span:nth-child(52) { left: 46%; animation-duration: 16s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(53) { left: 53%; animation-duration: 13s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(54) { left: 60%; animation-duration: 19s; animation-delay: -6s; }
-.code-rain-columns span:nth-child(55) { left: 67%; animation-duration: 11s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(56) { left: 74%; animation-duration: 17s; animation-delay: -8s; }
-.code-rain-columns span:nth-child(57) { left: 81%; animation-duration: 15s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(58) { left: 88%; animation-duration: 14s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(59) { left: 95%; animation-duration: 12s; animation-delay: -7s; }
-.code-rain-columns span:nth-child(60) { left: 1%; animation-duration: 18s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(61) { left: 8%; animation-duration: 16s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(62) { left: 15%; animation-duration: 13s; animation-delay: -6s; }
-.code-rain-columns span:nth-child(63) { left: 22%; animation-duration: 19s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(64) { left: 29%; animation-duration: 11s; animation-delay: -8s; }
-.code-rain-columns span:nth-child(65) { left: 36%; animation-duration: 17s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(66) { left: 43%; animation-duration: 15s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(67) { left: 50%; animation-duration: 14s; animation-delay: -7s; }
-.code-rain-columns span:nth-child(68) { left: 57%; animation-duration: 12s; animation-delay: -4s; }
-.code-rain-columns span:nth-child(69) { left: 64%; animation-duration: 18s; animation-delay: -1s; }
-.code-rain-columns span:nth-child(70) { left: 71%; animation-duration: 16s; animation-delay: -6s; }
-.code-rain-columns span:nth-child(71) { left: 78%; animation-duration: 13s; animation-delay: -2s; }
-.code-rain-columns span:nth-child(72) { left: 85%; animation-duration: 19s; animation-delay: -8s; }
-.code-rain-columns span:nth-child(73) { left: 92%; animation-duration: 11s; animation-delay: -3s; }
-.code-rain-columns span:nth-child(74) { left: 97%; animation-duration: 17s; animation-delay: -5s; }
-.code-rain-columns span:nth-child(75) { left: 6%; animation-duration: 15s; animation-delay: -7s; }
-
-.code-rain-columns span:nth-child(odd) {
-  color: #8b5cf6;
-}
-
-@keyframes rain-drop {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
+  /* Shake animation for cursor at max size */
+  @keyframes shake {
+    0%, 100% {
+      transform: translate(-15%, -15%) rotate(-90deg) translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+      transform: translate(-15%, -15%) rotate(-90deg) translateX(-4px);
+    }
+    20%, 40%, 60%, 80% {
+      transform: translate(-15%, -15%) rotate(-90deg) translateX(4px);
+    }
   }
-  10% {
-    opacity: 0.25;
+
+  /* Intense pulse animation for cursor at 300px+ */
+  @keyframes pulse-intense {
+    0%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.7;
+      filter: brightness(1.3);
+    }
   }
-  90% {
-    opacity: 0.25;
+
+  .animate-pulse-intense {
+    animation: pulse-intense 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  100% {
-    transform: translateY(200vh);
-    opacity: 0;
+
+  /* Heartbeat pulse effect for current milestone */
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+    }
+    25% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.3);
+    }
+    50% {
+      transform: scale(1);
+      box-shadow: 0 0 0 8px rgba(56, 189, 248, 0);
+    }
+    75% {
+      transform: scale(1.03);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+    }
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 2s infinite;
+  }
+
+  /* Code rain falling animation */
+  @keyframes code-fall {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(50%);
+    }
+  }
+
+  /* Single rain drop animation */
+  @keyframes rain-drop {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.25;
+    }
+    90% {
+      opacity: 0.25;
+    }
+    100% {
+      transform: translateY(200vh);
+      opacity: 0;
+    }
+  }
+
+  /* Fast rain drop for loading screen */
+  @keyframes rain-drop-fast {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.4;
+    }
+    95% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(200vh);
+      opacity: 0;
+    }
+  }
+
+  /* Diagonal left rain drop animation */
+  @keyframes rain-drop-fast-diagonal-left {
+    0% {
+      transform: translate(-20vw, 0);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.4;
+    }
+    95% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(0, 200vh);
+      opacity: 0;
+    }
+  }
+
+  /* Diagonal right rain drop animation */
+  @keyframes rain-drop-fast-diagonal-right {
+    0% {
+      transform: translate(20vw, 0);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.4;
+    }
+    95% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(0, 200vh);
+      opacity: 0;
+    }
+  }
+
+  /* Curved left rain drop animation */
+  @keyframes rain-drop-fast-curve-left {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.4;
+    }
+    50% {
+      transform: translate(-10vw, 100vh) rotate(-180deg);
+    }
+    95% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(0, 200vh) rotate(-360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Curved right rain drop animation */
+  @keyframes rain-drop-fast-curve-right {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.4;
+    }
+    50% {
+      transform: translate(10vw, 100vh) rotate(180deg);
+    }
+    95% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(0, 200vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Zigzag rain drop animation */
+  @keyframes rain-drop-fast-zigzag {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.4;
+    }
+    25% {
+      transform: translate(-5vw, 50vh);
+    }
+    50% {
+      transform: translate(5vw, 100vh);
+    }
+    75% {
+      transform: translate(-5vw, 150vh);
+    }
+    95% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(0, 200vh);
+      opacity: 0;
+    }
   }
 }
 
-/* Faster rain animation for loading screen - various orientations */
-@keyframes rain-drop-fast {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
+/* ============================================================================
+   GLASS MORPHISM EFFECTS - Frosted glass backgrounds
+   ============================================================================ */
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-[10px] border border-white/20;
   }
-  5% {
-    opacity: 0.4;
+
+  .dark .glass {
+    @apply bg-slate-950/60 border-white/5;
   }
-  95% {
-    opacity: 0.4;
+
+  .glass-subtle {
+    @apply bg-white/40 backdrop-blur-[8px];
   }
-  100% {
-    transform: translateY(200vh);
-    opacity: 0;
+
+  .dark .glass-subtle {
+    @apply bg-slate-950/40;
   }
 }
 
-@keyframes rain-drop-fast-diagonal-left {
-  0% {
-    transform: translate(-20vw, 0);
-    opacity: 0;
+/* ============================================================================
+   GRADIENT ORBS - Decorative background elements
+   ============================================================================ */
+
+@layer components {
+  .gradient-orb {
+    @apply fixed rounded-full blur-[80px] pointer-events-none -z-10;
   }
-  5% {
-    opacity: 0.4;
+
+  .gradient-orb-1 {
+    @apply top-[10%] right-[10%] w-[400px] h-[400px];
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
   }
-  95% {
-    opacity: 0.4;
+
+  .dark .gradient-orb-1 {
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
   }
-  100% {
-    transform: translate(0, 200vh);
-    opacity: 0;
+
+  .gradient-orb-2 {
+    @apply bottom-[20%] left-[5%] w-[350px] h-[350px];
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+  }
+
+  .dark .gradient-orb-2 {
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  }
+
+  .gradient-orb-3 {
+    @apply top-[50%] left-[40%] w-[300px] h-[300px];
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+  }
+
+  .dark .gradient-orb-3 {
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
   }
 }
 
-@keyframes rain-drop-fast-diagonal-right {
-  0% {
-    transform: translate(20vw, 0);
-    opacity: 0;
+/* ============================================================================
+   CODE RAIN BACKGROUND - Matrix-style text falling effect
+   ============================================================================ */
+
+@layer components {
+  .code-rain {
+    @apply fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-15;
   }
-  5% {
-    opacity: 0.4;
+
+  .dark .code-rain {
+    @apply opacity-25;
   }
-  95% {
-    opacity: 0.4;
+
+  .code-rain::before,
+  .code-rain::after {
+    content: "01001010 function() { } const => return async await <div> </> import export class interface type 10110101 { } [ ] && || !== === useState useEffect React TypeScript 11010010";
+    @apply absolute top-[-100%] left-0 w-full h-[200%] font-mono text-[10px] leading-[1.5] text-cyan-400 pointer-events-none;
+    word-wrap: break-word;
+    word-break: break-all;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    animation: code-fall 20s linear infinite;
+    white-space: pre-wrap;
+    letter-spacing: 8px;
   }
-  100% {
-    transform: translate(0, 200vh);
-    opacity: 0;
+
+  .code-rain::after {
+    @apply left-[50%] text-violet-500;
+    animation-delay: -10s;
+  }
+
+  .code-rain-columns {
+    @apply fixed inset-0 pointer-events-none z-0 overflow-hidden;
+  }
+
+  .code-rain-columns span {
+    @apply absolute top-[-100vh] font-mono text-[18px] text-cyan-400 opacity-20 pointer-events-none;
+    animation: rain-drop linear infinite;
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .dark .code-rain-columns span {
+    @apply opacity-35;
+  }
+
+  /* Animation timing and positions for 75 rain columns */
+  .code-rain-columns span:nth-child(1) { @apply left-[3%]; animation-duration: 15s; animation-delay: 0s; }
+  .code-rain-columns span:nth-child(2) { @apply left-[10%]; animation-duration: 18s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(3) { @apply left-[17%]; animation-duration: 12s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(4) { @apply left-[24%]; animation-duration: 20s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(5) { @apply left-[31%]; animation-duration: 14s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(6) { @apply left-[38%]; animation-duration: 17s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(7) { @apply left-[45%]; animation-duration: 13s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(8) { @apply left-[52%]; animation-duration: 19s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(9) { @apply left-[59%]; animation-duration: 16s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(10) { @apply left-[66%]; animation-duration: 14s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(11) { @apply left-[73%]; animation-duration: 21s; animation-delay: -6s; }
+  .code-rain-columns span:nth-child(12) { @apply left-[80%]; animation-duration: 11s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(13) { @apply left-[87%]; animation-duration: 16s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(14) { @apply left-[94%]; animation-duration: 18s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(15) { @apply left-[97%]; animation-duration: 15s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(16) { @apply left-[5%]; animation-duration: 13s; animation-delay: -7s; }
+  .code-rain-columns span:nth-child(17) { @apply left-[12%]; animation-duration: 19s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(18) { @apply left-[19%]; animation-duration: 16s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(19) { @apply left-[26%]; animation-duration: 14s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(20) { @apply left-[33%]; animation-duration: 18s; animation-delay: -6s; }
+  .code-rain-columns span:nth-child(21) { @apply left-[40%]; animation-duration: 15s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(22) { @apply left-[47%]; animation-duration: 17s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(23) { @apply left-[54%]; animation-duration: 20s; animation-delay: -8s; }
+  .code-rain-columns span:nth-child(24) { @apply left-[61%]; animation-duration: 12s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(25) { @apply left-[68%]; animation-duration: 16s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(26) { @apply left-[75%]; animation-duration: 14s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(27) { @apply left-[82%]; animation-duration: 19s; animation-delay: -7s; }
+  .code-rain-columns span:nth-child(28) { @apply left-[89%]; animation-duration: 13s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(29) { @apply left-[96%]; animation-duration: 17s; animation-delay: -6s; }
+  .code-rain-columns span:nth-child(30) { @apply left-[99%]; animation-duration: 15s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(31) { @apply left-[2%]; animation-duration: 14s; animation-delay: -8s; }
+  .code-rain-columns span:nth-child(32) { @apply left-[7%]; animation-duration: 18s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(33) { @apply left-[14%]; animation-duration: 12s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(34) { @apply left-[21%]; animation-duration: 16s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(35) { @apply left-[28%]; animation-duration: 13s; animation-delay: -7s; }
+  .code-rain-columns span:nth-child(36) { @apply left-[35%]; animation-duration: 19s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(37) { @apply left-[42%]; animation-duration: 11s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(38) { @apply left-[49%]; animation-duration: 17s; animation-delay: -6s; }
+  .code-rain-columns span:nth-child(39) { @apply left-[56%]; animation-duration: 15s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(40) { @apply left-[63%]; animation-duration: 14s; animation-delay: -8s; }
+  .code-rain-columns span:nth-child(41) { @apply left-[70%]; animation-duration: 12s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(42) { @apply left-[77%]; animation-duration: 18s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(43) { @apply left-[84%]; animation-duration: 16s; animation-delay: -7s; }
+  .code-rain-columns span:nth-child(44) { @apply left-[91%]; animation-duration: 13s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(45) { @apply left-[98%]; animation-duration: 19s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(46) { @apply left-[4%]; animation-duration: 11s; animation-delay: -6s; }
+  .code-rain-columns span:nth-child(47) { @apply left-[11%]; animation-duration: 17s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(48) { @apply left-[18%]; animation-duration: 15s; animation-delay: -8s; }
+  .code-rain-columns span:nth-child(49) { @apply left-[25%]; animation-duration: 14s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(50) { @apply left-[32%]; animation-duration: 12s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(51) { @apply left-[39%]; animation-duration: 18s; animation-delay: -7s; }
+  .code-rain-columns span:nth-child(52) { @apply left-[46%]; animation-duration: 16s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(53) { @apply left-[53%]; animation-duration: 13s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(54) { @apply left-[60%]; animation-duration: 19s; animation-delay: -6s; }
+  .code-rain-columns span:nth-child(55) { @apply left-[67%]; animation-duration: 11s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(56) { @apply left-[74%]; animation-duration: 17s; animation-delay: -8s; }
+  .code-rain-columns span:nth-child(57) { @apply left-[81%]; animation-duration: 15s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(58) { @apply left-[88%]; animation-duration: 14s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(59) { @apply left-[95%]; animation-duration: 12s; animation-delay: -7s; }
+  .code-rain-columns span:nth-child(60) { @apply left-[1%]; animation-duration: 18s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(61) { @apply left-[8%]; animation-duration: 16s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(62) { @apply left-[15%]; animation-duration: 13s; animation-delay: -6s; }
+  .code-rain-columns span:nth-child(63) { @apply left-[22%]; animation-duration: 19s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(64) { @apply left-[29%]; animation-duration: 11s; animation-delay: -8s; }
+  .code-rain-columns span:nth-child(65) { @apply left-[36%]; animation-duration: 17s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(66) { @apply left-[43%]; animation-duration: 15s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(67) { @apply left-[50%]; animation-duration: 14s; animation-delay: -7s; }
+  .code-rain-columns span:nth-child(68) { @apply left-[57%]; animation-duration: 12s; animation-delay: -4s; }
+  .code-rain-columns span:nth-child(69) { @apply left-[64%]; animation-duration: 18s; animation-delay: -1s; }
+  .code-rain-columns span:nth-child(70) { @apply left-[71%]; animation-duration: 16s; animation-delay: -6s; }
+  .code-rain-columns span:nth-child(71) { @apply left-[78%]; animation-duration: 13s; animation-delay: -2s; }
+  .code-rain-columns span:nth-child(72) { @apply left-[85%]; animation-duration: 19s; animation-delay: -8s; }
+  .code-rain-columns span:nth-child(73) { @apply left-[92%]; animation-duration: 11s; animation-delay: -3s; }
+  .code-rain-columns span:nth-child(74) { @apply left-[97%]; animation-duration: 17s; animation-delay: -5s; }
+  .code-rain-columns span:nth-child(75) { @apply left-[6%]; animation-duration: 15s; animation-delay: -7s; }
+
+  .code-rain-columns span:nth-child(odd) {
+    @apply text-violet-500;
+  }
+
+  .dark .code-rain-columns span:nth-child(odd) {
+    @apply opacity-30;
+  }
+
+  .dark .code-rain-columns span:nth-child(even) {
+    @apply opacity-40;
   }
 }
 
-@keyframes rain-drop-fast-curve-left {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 0;
+/* ============================================================================
+   LOADING SCREEN CODE RAIN - Faster variant for loading state
+   ============================================================================ */
+
+@layer components {
+  .code-rain-fast::before,
+  .code-rain-fast::after {
+    animation-duration: 10s !important;
+    @apply opacity-35;
   }
-  5% {
-    opacity: 0.4;
+
+  .dark .code-rain-fast {
+    @apply opacity-40;
   }
-  50% {
-    transform: translate(-10vw, 100vh) rotate(-180deg);
+
+  .code-rain-fast-columns span {
+    animation-name: rain-drop-fast;
+    animation-duration: 6s !important;
+    @apply opacity-40 text-[20px];
   }
-  95% {
-    opacity: 0.4;
+
+  .dark .code-rain-fast-columns span {
+    @apply opacity-55;
   }
-  100% {
-    transform: translate(0, 200vh) rotate(-360deg);
-    opacity: 0;
+
+  /* Different orientations and paths for variety */
+  .code-rain-fast-columns span:nth-child(3n) {
+    animation-name: rain-drop-fast-diagonal-left;
+  }
+
+  .code-rain-fast-columns span:nth-child(3n+1) {
+    animation-name: rain-drop-fast-diagonal-right;
+  }
+
+  .code-rain-fast-columns span:nth-child(5n) {
+    animation-name: rain-drop-fast-curve-left;
+  }
+
+  .code-rain-fast-columns span:nth-child(7n) {
+    animation-name: rain-drop-fast-curve-right;
+  }
+
+  .code-rain-fast-columns span:nth-child(11n) {
+    animation-name: rain-drop-fast-zigzag;
+  }
+
+  .code-rain-fast-columns span:nth-child(13n) {
+    @apply rotate-90;
+  }
+
+  .code-rain-fast-columns span:nth-child(17n) {
+    @apply -rotate-90;
+  }
+
+  .code-rain-fast-columns span:nth-child(19n) {
+    @apply rotate-45;
+  }
+
+  .code-rain-fast-columns span:nth-child(23n) {
+    @apply -rotate-45;
+  }
+
+  .code-rain-fast-columns span:nth-child(29n) {
+    transform: rotate(135deg);
+  }
+
+  .code-rain-fast-columns span:nth-child(31n) {
+    transform: rotate(-135deg);
+  }
+
+  .code-rain-fast-columns span:nth-child(37n) {
+    transform: scaleX(-1) rotate(30deg);
+  }
+
+  .code-rain-fast-columns span:nth-child(41n) {
+    transform: scaleY(-1) rotate(-30deg);
   }
 }
 
-@keyframes rain-drop-fast-curve-right {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 0;
+/* ============================================================================
+   COMPONENT UTILITIES - Reusable modular component classes
+   ============================================================================ */
+
+@layer components {
+  /* Page Headers */
+  .page-header {
+    @apply px-8 md:px-20;
   }
-  5% {
-    opacity: 0.4;
+
+  .page-subtitle {
+    @apply text-sm uppercase tracking-widest text-sky-500 font-medium;
   }
-  50% {
-    transform: translate(10vw, 100vh) rotate(180deg);
+
+  .page-title {
+    @apply md:text-6xl text-4xl font-light tracking-tight text-gray-800 dark:text-gray-100;
   }
-  95% {
-    opacity: 0.4;
+
+  .page-title-divider {
+    @apply flex items-center gap-3 mt-3;
   }
-  100% {
-    transform: translate(0, 200vh) rotate(360deg);
-    opacity: 0;
+
+  .page-divider-line {
+    @apply w-12 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400;
+  }
+
+  .page-divider-text {
+    @apply text-xs text-gray-400;
+  }
+
+  /* Section Headers */
+  .section-title {
+    @apply md:text-6xl text-4xl font-light tracking-tight text-gray-800 dark:text-gray-100;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-gray-600 dark:text-gray-300 mt-2 font-light;
+  }
+
+  /* Navigation Links */
+  .nav-link {
+    @apply flex items-center gap-2 text-gray-500 hover:text-sky-500 transition-colors duration-300;
+  }
+
+  .nav-link-mobile {
+    @apply flex items-center gap-3 py-3 px-4 text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-sky-400 hover:bg-white/5 rounded-lg transition-all duration-300;
+  }
+
+  .nav-link-mobile-primary {
+    @apply flex items-center gap-3 py-3 px-4 text-sm uppercase tracking-widest font-medium text-sky-400 hover:text-sky-300 hover:bg-sky-500/10 rounded-lg transition-all duration-300;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full bg-sky-500 hover:bg-sky-400 text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30;
+  }
+
+  .btn-icon {
+    @apply text-2xl text-gray-400 hover:text-sky-500 hover:scale-110 transition-all duration-300;
+  }
+
+  /* Contact Items */
+  .contact-item {
+    @apply flex items-center gap-4 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards] text-left hover:translate-x-2 transition-all duration-300 cursor-pointer;
+  }
+
+  .contact-icon {
+    @apply text-sky-500 w-5 transition-transform duration-300;
+  }
+
+  .contact-item:hover .contact-icon {
+    @apply scale-110;
+  }
+
+  .contact-value {
+    @apply text-gray-600 dark:text-gray-300 transition-colors;
+  }
+
+  .contact-item:hover .contact-value {
+    @apply text-sky-500 dark:text-sky-400;
+  }
+
+  /* Project Cards */
+  .project-card-group {
+    @apply group;
+  }
+
+  .project-number {
+    @apply text-5xl md:text-6xl font-extralight text-gray-200 dark:text-gray-800 transition-colors duration-300;
+  }
+
+  .project-card-group:hover .project-number {
+    @apply text-sky-500/30;
+  }
+
+  .project-title {
+    @apply text-xl md:text-2xl font-light tracking-wide text-gray-700 dark:text-gray-200 transition-colors duration-300;
+  }
+
+  .project-card-group:hover .project-title {
+    @apply text-sky-500;
+  }
+
+  .project-description {
+    @apply text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl;
+  }
+
+  .project-tags-container {
+    @apply flex flex-wrap gap-2 mt-3;
+  }
+
+  /* Tech Cards */
+  .tech-link {
+    @apply inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 transition-all duration-300;
+  }
+
+  .tech-link:hover {
+    @apply text-sky-500;
+  }
+
+  .tech-icon {
+    @apply text-xs transition-transform duration-300;
+  }
+
+  .tech-link:hover .tech-icon {
+    @apply scale-110;
+  }
+
+  .tech-name {
+    @apply transition-transform duration-300;
+  }
+
+  .tech-link:hover .tech-name {
+    @apply translate-x-0.5;
+  }
+
+  /* Stats Display */
+  .stat-box {
+    @apply text-center;
+  }
+
+  .stat-number {
+    @apply text-3xl md:text-4xl font-light text-sky-500 tabular-nums;
+  }
+
+  .stat-label {
+    @apply text-[10px] uppercase tracking-widest text-gray-400 mt-1;
+  }
+
+  /* Gradient Dividers */
+  .gradient-divider {
+    @apply flex items-center gap-3 mt-3;
+  }
+
+  .gradient-line {
+    @apply w-12 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400;
+  }
+
+  .gradient-line-full {
+    @apply flex-1 h-px bg-gradient-to-r from-gray-200 dark:from-gray-800 to-transparent;
+  }
+
+  /* Hover Effects */
+  .hover-sky-text {
+    @apply hover:text-sky-500 transition-colors duration-300;
+  }
+
+  .hover-scale-up {
+    @apply hover:scale-110 transition-transform duration-300;
+  }
+
+  .hover-translate-x {
+    @apply hover:translate-x-2 transition-all duration-300;
+  }
+
+  .hover-translate-up {
+    @apply hover:-translate-y-1 transition-all duration-300;
+  }
+
+  /* Loading State */
+  .loading-logo {
+    @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gray-900 dark:text-gray-100 animate-pulse select-none;
+  }
+
+  .loading-subtitle {
+    @apply text-xl text-gray-600 dark:text-gray-300 mt-2 font-light text-center;
+  }
+
+  /* Expand/Collapse Button */
+  .expand-button {
+    @apply flex items-center gap-2 text-xs text-gray-400 hover:text-sky-500 transition-all duration-300 opacity-0 md:opacity-0 md:group-hover/header:opacity-100 md:-translate-x-2 md:group-hover/header:translate-x-0;
+  }
+
+  /* Animation utilities */
+  .animate-stagger-1 {
+    animation-delay: 100ms;
+  }
+
+  .animate-stagger-2 {
+    animation-delay: 200ms;
+  }
+
+  .animate-stagger-3 {
+    animation-delay: 300ms;
+  }
+
+  .animate-stagger-4 {
+    animation-delay: 400ms;
   }
 }
 
-@keyframes rain-drop-fast-zigzag {
-  0% {
-    transform: translate(0, 0);
-    opacity: 0;
+/* ============================================================================
+   CURSOR STYLING - Hide default cursor on desktop, show on touch
+   ============================================================================ */
+
+@layer base {
+  @media (hover: hover) and (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
   }
-  5% {
-    opacity: 0.4;
-  }
-  25% {
-    transform: translate(-5vw, 50vh);
-  }
-  50% {
-    transform: translate(5vw, 100vh);
-  }
-  75% {
-    transform: translate(-5vw, 150vh);
-  }
-  95% {
-    opacity: 0.4;
-  }
-  100% {
-    transform: translate(0, 200vh);
-    opacity: 0;
+
+  @media (hover: none) or (pointer: coarse) {
+    * {
+      cursor: auto !important;
+    }
   }
 }
 
-/* Loading screen specific - faster and more visible rain */
-.code-rain-fast::before,
-.code-rain-fast::after {
-  animation-duration: 10s !important;
-  opacity: 0.35;
-}
+/* ============================================================================
+   BASE STYLES - Global element styling
+   ============================================================================ */
 
-.dark .code-rain-fast {
-  opacity: 0.4;
-}
-
-.code-rain-fast-columns span {
-  animation-name: rain-drop-fast;
-  animation-duration: 6s !important;
-  opacity: 0.4;
-  font-size: 20px;
-}
-
-.dark .code-rain-fast-columns span {
-  opacity: 0.55;
-}
-
-/* Different orientations and paths for variety */
-.code-rain-fast-columns span:nth-child(3n) {
-  animation-name: rain-drop-fast-diagonal-left;
-}
-
-.code-rain-fast-columns span:nth-child(3n+1) {
-  animation-name: rain-drop-fast-diagonal-right;
-}
-
-.code-rain-fast-columns span:nth-child(5n) {
-  animation-name: rain-drop-fast-curve-left;
-}
-
-.code-rain-fast-columns span:nth-child(7n) {
-  animation-name: rain-drop-fast-curve-right;
-}
-
-.code-rain-fast-columns span:nth-child(11n) {
-  animation-name: rain-drop-fast-zigzag;
-}
-
-.code-rain-fast-columns span:nth-child(13n) {
-  transform: rotate(90deg);
-}
-
-.code-rain-fast-columns span:nth-child(17n) {
-  transform: rotate(-90deg);
-}
-
-.code-rain-fast-columns span:nth-child(19n) {
-  transform: rotate(45deg);
-}
-
-.code-rain-fast-columns span:nth-child(23n) {
-  transform: rotate(-45deg);
-}
-
-.code-rain-fast-columns span:nth-child(29n) {
-  transform: rotate(135deg);
-}
-
-.code-rain-fast-columns span:nth-child(31n) {
-  transform: rotate(-135deg);
-}
-
-.code-rain-fast-columns span:nth-child(37n) {
-  transform: scaleX(-1) rotate(30deg);
-}
-
-.code-rain-fast-columns span:nth-child(41n) {
-  transform: scaleY(-1) rotate(-30deg);
-}
-
-.dark .code-rain-columns span:nth-child(odd) {
-  opacity: 0.3;
-}
-
-.dark .code-rain-columns span:nth-child(even) {
-  opacity: 0.4;
-}
-
-/* Slide up animation for staggered reveals */
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Fade in animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Shake animation for cursor at max size */
-@keyframes shake {
-  0%, 100% {
-    transform: translate(-15%, -15%) rotate(-90deg) translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translate(-15%, -15%) rotate(-90deg) translateX(-4px);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translate(-15%, -15%) rotate(-90deg) translateX(4px);
-  }
-}
-
-/* Intense pulse animation for cursor at 300px+ */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    filter: brightness(1);
-  }
-  50% {
-    opacity: 0.7;
-    filter: brightness(1.3);
-  }
-}
-
-/* Heartbeat pulse effect for current milestone */
-@keyframes heartbeat {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
-  }
-  25% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.3);
-  }
-  50% {
-    transform: scale(1);
-    box-shadow: 0 0 0 8px rgba(56, 189, 248, 0);
-  }
-  75% {
-    transform: scale(1.03);
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+@layer base {
+  html {
+    @apply scroll-smooth;
   }
 }

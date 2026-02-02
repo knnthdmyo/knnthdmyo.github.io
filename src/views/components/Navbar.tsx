@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { faSearch, faBars, faXmark, faDownload, faRoute, faBriefcase, faEnvelope, faCode } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { ThemeToggle } from './ThemeToggle';
 
 interface NavBarProps {
   onSearchClick?: () => void;
@@ -87,7 +88,7 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <a 
-                      className="flex items-center gap-2 text-gray-500 hover:text-sky-500 transition-colors duration-300" 
+                      className="nav-link" 
                       href={link.href}
                     >
                       <FontAwesomeIcon icon={link.icon} className="text-xs" />
@@ -99,7 +100,7 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
                   <a 
                     href={CV_LINK}
                     download="Kenneth_Resume.pdf"
-                    className="flex items-center gap-2 text-sky-500 hover:text-sky-400 transition-colors duration-300"
+                    className="nav-link"
                   >
                     <FontAwesomeIcon icon={faDownload} className="text-xs" />
                     <span>Download CV</span>
@@ -108,7 +109,8 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
               </ul>
 
               {/* Search */}
-              <div className="flex items-center flex-1 md:flex-none justify-end">
+              <div className="flex items-center flex-1 md:flex-none justify-end gap-2 md:gap-4">
+                <ThemeToggle />
                 <button
                   onClick={handleSearchClick}
                   className="flex items-center gap-2 md:gap-3 px-3 md:px-4 h-9 md:h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400 text-xs md:text-sm w-full md:w-auto md:min-w-[160px] lg:min-w-[200px]"
@@ -198,7 +200,7 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
                   <a 
                     href={link.href}
                     onClick={closeMobileMenu}
-                    className="flex items-center gap-3 py-3 px-4 text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-sky-400 hover:bg-white/5 rounded-lg transition-all duration-300"
+                    className="nav-link-mobile"
                   >
                     <FontAwesomeIcon icon={link.icon} className="text-xs" />
                     <span>{link.label}</span>
@@ -210,7 +212,7 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
                   href={CV_LINK}
                   download="Kenneth_Resume.pdf"
                   onClick={closeMobileMenu}
-                  className="flex items-center gap-3 py-3 px-4 text-sm uppercase tracking-widest font-medium text-sky-400 hover:text-sky-300 hover:bg-sky-500/10 rounded-lg transition-all duration-300"
+                  className="nav-link-mobile-primary"
                 >
                   <FontAwesomeIcon icon={faDownload} className="text-xs" />
                   <span>Download CV</span>
@@ -220,7 +222,8 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
           </nav>
 
           {/* Search Button */}
-          <div className="relative p-5 border-t border-white/5">
+          <div className="relative p-5 border-t border-white/5 flex flex-col gap-3">
+            <ThemeToggle />
             <button
               onClick={handleSearchClick}
               className="flex items-center gap-3 w-full px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 text-gray-300 text-sm"

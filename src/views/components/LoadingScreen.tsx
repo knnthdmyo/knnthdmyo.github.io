@@ -81,11 +81,11 @@ export default function LoadingScreen({ showOnInactivity = false, isInactive = f
       <div className="relative z-[9999] justify-center items-center">
         <h1
           id="loading-logo"
-          className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gray-200 animate-pulse select-none"
+          className="loading-logo"
         >
           {`< knnthdmyo />`}
         </h1>
-        <p className="text-xl text-gray-400 mt-2 font-light text-center">Frontend Engineer</p>
+        <p className="loading-subtitle">Frontend Engineer</p>
       </div>
 
     </div>

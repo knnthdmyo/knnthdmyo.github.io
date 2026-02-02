@@ -86,12 +86,12 @@ const ReachOut = () => {
 
       <div className="md:py-20 py-12 flex flex-col gap-10 md:gap-14">
         {/* Header */}
-        <div className="px-8 md:px-20">
-          <span className="text-sm uppercase tracking-widest text-sky-500 font-medium">Get In Touch</span>
-          <h1 className="md:text-6xl text-4xl font-light tracking-tight text-gray-800 dark:text-gray-200">Let&apos;s Connect</h1>
-          <div className="flex items-center gap-3 mt-3">
-            <div className="w-12 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400" />
-            <p className="text-xs text-gray-400">Open for opportunities</p>
+        <div className="page-header">
+          <span className="page-subtitle">Get In Touch</span>
+          <h1 className="page-title">Let&apos;s Connect</h1>
+          <div className="page-title-divider">
+            <div className="page-divider-line" />
+            <p className="page-divider-text">Open for opportunities</p>
           </div>
         </div>
 
@@ -101,14 +101,14 @@ const ReachOut = () => {
             <button
               key={index}
               onClick={() => handleContactClick(contact)}
-              className="flex items-center gap-4 group opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards] text-left hover:translate-x-2 transition-all duration-300 cursor-pointer"
+              className="contact-item"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <FontAwesomeIcon 
                 icon={contact.icon} 
-                className="text-sky-500 w-5 group-hover:scale-110 transition-transform duration-300" 
+                className="contact-icon" 
               />
-              <span className="text-gray-600 dark:text-gray-300 group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors">
+              <span className="contact-value">
                 {contact.value}
               </span>
             </button>
@@ -119,7 +119,7 @@ const ReachOut = () => {
         <div className="px-8 md:px-20 flex flex-wrap gap-4">
           <a
             href={`mailto:${email}?subject=${createEmailTemplate().subject}&body=${createEmailTemplate().body}`}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-sky-500 hover:bg-sky-400 text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards]"
+            className="btn-primary opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards]"
             style={{ animationDelay: '300ms' }}
           >
             <FontAwesomeIcon icon={faPaperPlane} />
@@ -128,7 +128,7 @@ const ReachOut = () => {
           <a
             href={CV_LINK}
             download="Kenneth_Resume.pdf"
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards]"
+            className="btn-secondary opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards]"
             style={{ animationDelay: '400ms' }}
           >
             <FontAwesomeIcon icon={faDownload} />
@@ -146,7 +146,7 @@ const ReachOut = () => {
                 href={social.link}
                 target="_blank"
                 rel="noreferrer"
-                className="text-2xl text-gray-400 hover:text-sky-500 hover:scale-110 transition-all duration-300"
+                className="btn-icon"
               >
                 <FontAwesomeIcon icon={social.icon} />
               </a>

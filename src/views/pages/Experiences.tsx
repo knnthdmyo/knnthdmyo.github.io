@@ -51,14 +51,14 @@ const Experiences = () => {
         <div className="group/header px-8 md:px-20">
           <div className="flex items-end gap-4">
             <div>
-              <span className="text-sm uppercase tracking-widest text-sky-500 font-medium">Career</span>
-              <h1 className="md:text-6xl text-4xl font-light tracking-tight text-gray-800 dark:text-gray-200">Journey</h1>
+              <span className="page-subtitle">Career</span>
+              <h1 className="page-title">Journey</h1>
             </div>
             
             {/* See All Button - Mobile always visible, Desktop on hover */}
             <button
               onClick={handleToggleShowAll}
-              className="flex items-center gap-2 text-xs text-gray-400 hover:text-sky-500 transition-all duration-300 mb-2 md:opacity-0 md:group-hover/header:opacity-100 md:-translate-x-2 md:group-hover/header:translate-x-0"
+              className="expand-button mb-2"
             >
               <span>{showAll ? 'Collapse' : 'Expand All'}</span>
               <FontAwesomeIcon

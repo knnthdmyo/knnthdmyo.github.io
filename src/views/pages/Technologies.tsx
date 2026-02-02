@@ -9,12 +9,12 @@ const Technologies = () => {
   return (
     <div className="box-border md:py-20 py-12 flex flex-col gap-10 md:gap-16">
       {/* Header */}
-      <div className="px-8 md:px-20">
-        <span className="text-sm uppercase tracking-widest text-sky-500 font-medium">Tech</span>
-        <h1 className="md:text-6xl text-4xl font-light tracking-tight text-gray-800 dark:text-gray-200">Stack</h1>
-        <div className="flex items-center gap-3 mt-3">
-          <div className="w-12 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400" />
-          <p className="text-xs text-gray-400">{totalCount}+ technologies</p>
+      <div className="page-header">
+        <span className="page-subtitle">Tech</span>
+        <h1 className="page-title">Stack</h1>
+        <div className="page-title-divider">
+          <div className="page-divider-line" />
+          <p className="page-divider-text">{totalCount}+ technologies</p>
         </div>
       </div>
 
@@ -31,7 +31,7 @@ const Technologies = () => {
               <span className="text-xs uppercase tracking-widest text-gray-400 group-hover:text-sky-500 transition-colors duration-300">
                 {category.title}
               </span>
-              <div className="flex-1 h-px bg-gradient-to-r from-gray-200 dark:from-gray-800 to-transparent" />
+              <div className="gradient-line-full" />
             </div>
 
             {/* Tags */}
@@ -42,14 +42,14 @@ const Technologies = () => {
                   href={tech.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="group/tag inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-sky-500 transition-all duration-300"
+                  className="tech-link"
                 >
                   <FontAwesomeIcon 
                     icon={tech.icon} 
-                    className="text-xs group-hover/tag:scale-110 transition-transform duration-300"
+                    className="tech-icon"
                     style={{ color: tech.color }}
                   />
-                  <span className="group-hover/tag:translate-x-0.5 transition-transform duration-300">{tech.name}</span>
+                  <span className="tech-name">{tech.name}</span>
                 </a>
               ))}
             </div>
