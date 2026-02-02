@@ -28,7 +28,7 @@ const Technologies = () => {
           >
             {/* Category Header */}
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-xs uppercase tracking-widest text-gray-400 group-hover:text-sky-500 transition-colors duration-300">
+              <span className="text-xs uppercase tracking-widest text-black/60 dark:text-gray-400 group-hover:text-sky-500 transition-colors duration-300">
                 {category.title}
               </span>
               <div className="gradient-line-full" />

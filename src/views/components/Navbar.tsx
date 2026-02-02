@@ -113,7 +113,7 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
                 <ThemeToggle />
                 <button
                   onClick={handleSearchClick}
-                  className="flex items-center gap-2 md:gap-3 px-3 md:px-4 h-9 md:h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-500 dark:text-gray-400 text-xs md:text-sm w-full md:w-auto md:min-w-[160px] lg:min-w-[200px]"
+                  className="flex items-center gap-2 md:gap-3 px-3 md:px-4 h-9 md:h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-black/70 dark:text-gray-400 text-xs md:text-sm w-full md:w-auto md:min-w-[160px] lg:min-w-[200px]"
                 >
                   <FontAwesomeIcon icon={faSearch} className="text-xs" />
                   <span className="flex-1 text-left">Search...</span>

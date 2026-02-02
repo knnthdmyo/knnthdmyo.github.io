@@ -16,7 +16,7 @@ const WorldMap = memo(({ locations: customLocations, title }: WorldMapProps) => 
   return (
     <div className="relative w-full max-w-5xl mx-auto px-4">
       {title && (
-        <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-4 text-center">{title}</p>
+        <p className="text-[10px] uppercase tracking-widest text-black/60 dark:text-gray-400 mb-4 text-center">{title}</p>
       )}
       <div className="relative overflow-hidden">
         <ComposableMap

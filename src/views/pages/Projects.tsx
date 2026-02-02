@@ -46,7 +46,7 @@ const Projects = () => {
         </div>
         <div className="flex items-center gap-3 mt-3">
           <div className="w-12 h-0.5 bg-gradient-to-r from-violet-400 to-sky-400" />
-          <p className="text-xs text-gray-400">{projects.length} featured projects</p>
+          <p className="text-xs text-black/60 dark:text-gray-400">{projects.length} featured projects</p>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ const Projects = () => {
                   {!showAll && (
                     <FontAwesomeIcon
                       icon={faChevronDown}
-                      className={`text-xs text-gray-400 transition-all duration-300 opacity-0 group-hover:opacity-100 ${
+                      className={`text-xs text-black/50 dark:text-gray-400 transition-all duration-300 opacity-0 group-hover:opacity-100 ${
                         expandedProject === index ? 'rotate-180' : ''
                       }`}
                     />
@@ -110,7 +110,7 @@ const Projects = () => {
                     />
                   </div>
                 ) : (
-                  <div className="w-full max-w-2xl h-64 md:h-80 flex flex-col items-center justify-center gap-3 text-gray-500 bg-gray-100 dark:bg-gray-800/30 rounded-xl">
+                  <div className="w-full max-w-2xl h-64 md:h-80 flex flex-col items-center justify-center gap-3 text-black/60 dark:text-gray-500 bg-gray-100 dark:bg-gray-800/30 rounded-xl">
                     <FontAwesomeIcon icon={faImage} className="text-4xl" />
                     <span className="text-xs uppercase tracking-wider">No preview available</span>
                   </div>

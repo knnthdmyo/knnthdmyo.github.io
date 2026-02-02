@@ -230,18 +230,18 @@ const CommandPalette = () => {
 
       <div className="relative w-full max-w-2xl mx-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
         <div className="flex items-center gap-3 p-4 border-b border-gray-200 dark:border-gray-700">
-          <FontAwesomeIcon icon={faSearch} className="text-gray-400" />
+          <FontAwesomeIcon icon={faSearch} className="text-black/50 dark:text-gray-400" />
           <input
             type="text"
             placeholder="Ask me anything about my portfolio..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="flex-1 bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-400"
+            className="flex-1 bg-transparent outline-none text-black dark:text-white placeholder-gray-400"
             autoFocus
           />
           <div className="flex items-center gap-2">
-            <kbd className="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 dark:bg-gray-800 rounded">ESC</kbd>
-            <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+            <kbd className="px-2 py-1 text-xs font-medium text-black/60 dark:text-gray-500 bg-gray-100 dark:bg-gray-800 rounded">ESC</kbd>
+            <button onClick={() => setIsOpen(false)} className="text-black/50 dark:text-gray-400 hover:text-black dark:hover:text-gray-300">
               <FontAwesomeIcon icon={faXmark} />
             </button>
           </div>
@@ -253,7 +253,7 @@ const CommandPalette = () => {
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-400 to-violet-500 flex items-center justify-center text-white text-xs font-bold shrink-0">
                 AI
               </div>
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-sm text-black dark:text-gray-300 leading-relaxed">
                 {aiResponse}
               </p>
             </div>
@@ -270,19 +270,19 @@ const CommandPalette = () => {
                   className={`w-full flex items-center gap-3 p-3 rounded-lg text-left transition-colors
                     ${selectedIndex === index 
                       ? 'bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400' 
-                      : 'hover:bg-gray-50 dark:hover:bg-gray-800/50 text-gray-700 dark:text-gray-300'
+                      : 'hover:bg-gray-50 dark:hover:bg-gray-800/50 text-black dark:text-gray-300'
                     }`}
                 >
                   <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0
                     ${selectedIndex === index 
                       ? 'bg-sky-100 dark:bg-sky-800/50 text-sky-500' 
-                      : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
+                      : 'bg-gray-100 dark:bg-gray-800 text-black/60 dark:text-gray-500'
                     }`}>
                     <FontAwesomeIcon icon={getIcon(result.type)} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="font-medium truncate">{result.title}</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{result.description}</p>
+                    <p className="text-xs text-black/60 dark:text-gray-400 truncate">{result.description}</p>
                   </div>
                   <FontAwesomeIcon 
                     icon={faArrowRight} 
@@ -292,14 +292,14 @@ const CommandPalette = () => {
               ))}
             </div>
           ) : query && (
-            <div className="p-8 text-center text-gray-500">
+            <div className="p-8 text-center text-black/60 dark:text-gray-500">
               <p>No results found for &ldquo;{query}&rdquo;</p>
             </div>
           )}
         </div>
 
         <div className="p-3 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
-          <div className="flex items-center justify-between text-xs text-gray-500">
+          <div className="flex items-center justify-between text-xs text-black/60 dark:text-gray-500">
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
                 <kbd className="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">↑</kbd>

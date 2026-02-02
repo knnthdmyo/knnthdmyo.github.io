@@ -566,7 +566,7 @@
   }
 
   .page-title {
-    @apply md:text-6xl text-4xl font-light tracking-tight text-gray-800 dark:text-gray-100;
+    @apply md:text-6xl text-4xl font-light tracking-tight text-black dark:text-gray-100;
   }
 
   .page-title-divider {
@@ -578,21 +578,21 @@
   }
 
   .page-divider-text {
-    @apply text-xs text-gray-400;
+    @apply text-xs text-black/60 dark:text-gray-400;
   }
 
   /* Section Headers */
   .section-title {
-    @apply md:text-6xl text-4xl font-light tracking-tight text-gray-800 dark:text-gray-100;
+    @apply md:text-6xl text-4xl font-light tracking-tight text-black dark:text-gray-100;
   }
 
   .section-subtitle {
-    @apply text-xl text-gray-600 dark:text-gray-300 mt-2 font-light;
+    @apply text-xl text-black/70 dark:text-gray-300 mt-2 font-light;
   }
 
   /* Navigation Links */
   .nav-link {
-    @apply flex items-center gap-2 text-gray-500 hover:text-sky-500 transition-colors duration-300;
+    @apply flex items-center gap-2 text-black/70 dark:text-gray-500 hover:text-sky-500 transition-colors duration-300;
   }
 
   .nav-link-mobile {
@@ -613,7 +613,7 @@
   }
 
   .btn-icon {
-    @apply text-2xl text-gray-400 hover:text-sky-500 hover:scale-110 transition-all duration-300;
+    @apply text-2xl text-black/60 dark:text-gray-400 hover:text-sky-500 hover:scale-110 transition-all duration-300;
   }
 
   /* Contact Items */
@@ -630,7 +630,7 @@
   }
 
   .contact-value {
-    @apply text-gray-600 dark:text-gray-300 transition-colors;
+    @apply text-black dark:text-gray-300 transition-colors;
   }
 
   .contact-item:hover .contact-value {
@@ -643,7 +643,7 @@
   }
 
   .project-number {
-    @apply text-5xl md:text-6xl font-extralight text-gray-200 dark:text-gray-800 transition-colors duration-300;
+    @apply text-5xl md:text-6xl font-extralight text-black/20 dark:text-gray-800 transition-colors duration-300;
   }
 
   .project-card-group:hover .project-number {
@@ -651,7 +651,7 @@
   }
 
   .project-title {
-    @apply text-xl md:text-2xl font-light tracking-wide text-gray-700 dark:text-gray-200 transition-colors duration-300;
+    @apply text-xl md:text-2xl font-light tracking-wide text-black dark:text-gray-200 transition-colors duration-300;
   }
 
   .project-card-group:hover .project-title {
@@ -659,7 +659,7 @@
   }
 
   .project-description {
-    @apply text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl;
+    @apply text-sm text-black/70 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl;
   }
 
   .project-tags-container {
@@ -668,7 +668,7 @@
 
   /* Tech Cards */
   .tech-link {
-    @apply inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 transition-all duration-300;
+    @apply inline-flex items-center gap-2 text-sm text-black dark:text-gray-400 transition-all duration-300;
   }
 
   .tech-link:hover {
@@ -701,7 +701,7 @@
   }
 
   .stat-label {
-    @apply text-[10px] uppercase tracking-widest text-gray-400 mt-1;
+    @apply text-[10px] uppercase tracking-widest text-black/60 dark:text-gray-400 mt-1;
   }
 
   /* Gradient Dividers */
@@ -736,16 +736,16 @@
 
   /* Loading State */
   .loading-logo {
-    @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-gray-900 dark:text-gray-100 animate-pulse select-none;
+    @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-black dark:text-gray-100 animate-pulse select-none;
   }
 
   .loading-subtitle {
-    @apply text-xl text-gray-600 dark:text-gray-300 mt-2 font-light text-center;
+    @apply text-xl text-black/70 dark:text-gray-300 mt-2 font-light text-center;
   }
 
   /* Expand/Collapse Button */
   .expand-button {
-    @apply flex items-center gap-2 text-xs text-gray-400 hover:text-sky-500 transition-all duration-300 opacity-0 md:opacity-0 md:group-hover/header:opacity-100 md:-translate-x-2 md:group-hover/header:translate-x-0;
+    @apply flex items-center gap-2 text-xs text-black/60 dark:text-gray-400 hover:text-sky-500 transition-all duration-300 opacity-0 md:opacity-0 md:group-hover/header:opacity-100 md:-translate-x-2 md:group-hover/header:translate-x-0;
   }
 
   /* Animation utilities */

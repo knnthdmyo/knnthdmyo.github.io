@@ -16,7 +16,7 @@ export default function Home() {
       {/* Inactivity loading screen */}
       <LoadingScreen showOnInactivity isInactive={isInactive} />
       
-      <div className="bg-gradient-to-br from-slate-100 via-gray-100 to-sky-100/40 dark:from-[#0a0f1a] dark:via-[#0d1320] dark:to-[#0f172a] text-gray-900 dark:text-gray-100 transition-colors duration-300 cursor-none relative min-h-screen">
+      <div className="bg-gradient-to-br from-slate-100 via-gray-100 to-sky-100/40 dark:from-[#0a0f1a] dark:via-[#0d1320] dark:to-[#0f172a] text-black dark:text-gray-100 transition-colors duration-300 cursor-none relative min-h-screen">
       {/* Gradient orbs for visual depth */}
       <div className="gradient-orb gradient-orb-1" aria-hidden="true" />
       <div className="gradient-orb gradient-orb-2" aria-hidden="true" />

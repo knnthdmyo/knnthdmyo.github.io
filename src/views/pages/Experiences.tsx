@@ -69,7 +69,7 @@ const Experiences = () => {
           </div>
           <div className="flex items-center gap-3 mt-3">
             <div className="w-12 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400" />
-            <p className="text-xs text-gray-400">{milestones.length} milestones</p>
+            <p className="text-xs text-black/60 dark:text-gray-400">{milestones.length} milestones</p>
           </div>
         </div>
         
@@ -118,10 +118,10 @@ const Experiences = () => {
                       
                       {/* Label - below (no duration for non-work) */}
                       <div className="absolute top-12 whitespace-nowrap text-center max-w-32">
-                        <p className="text-[10px] font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide truncate">
+                        <p className="text-[10px] font-semibold text-black dark:text-gray-300 uppercase tracking-wide truncate">
                           {milestone.type === 'work' ? milestone.subtitle : milestone.title}
                         </p>
-                        <p className="text-[9px] text-gray-400 dark:text-gray-500 truncate">
+                        <p className="text-[9px] text-black/60 dark:text-gray-500 truncate">
                           {milestone.type === 'work' ? milestone.title : milestone.subtitle}
                         </p>
                         {milestone.type === 'work' && (
@@ -190,7 +190,7 @@ const Experiences = () => {
                                 </span>
                               )}
                               {milestone.workArrangement && (
-                                <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+                                <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-black dark:text-gray-400">
                                   {getArrangementLabel(milestone.workArrangement)}
                                 </span>
                               )}
@@ -199,17 +199,17 @@ const Experiences = () => {
                             {!showAll && (
                               <FontAwesomeIcon
                                 icon={faChevronDown}
-                                className={`text-xs text-gray-400 transition-all duration-300 opacity-0 group-hover:opacity-100 ${
+                                className={`text-xs text-black/50 dark:text-gray-400 transition-all duration-300 opacity-0 group-hover:opacity-100 ${
                                   expandedMilestone === index ? 'rotate-180' : ''
                                 }`}
                               />
                             )}
                           </div>
                           
-                          <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 uppercase tracking-wide">
+                          <h3 className="text-sm font-semibold text-black dark:text-gray-200 uppercase tracking-wide">
                             {milestone.type === 'work' ? milestone.subtitle : milestone.title}
                           </h3>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">
+                          <p className="text-xs text-black/70 dark:text-gray-400">
                             {milestone.type === 'work' ? milestone.title : milestone.subtitle}
                           </p>
                         </div>
@@ -220,7 +220,7 @@ const Experiences = () => {
                             showAll || expandedMilestone === index ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'
                           }`}
                         >
-                          <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                          <p className="text-xs text-black/80 dark:text-gray-300 leading-relaxed">
                             {milestone.description}
                           </p>
                         </div>
@@ -250,7 +250,7 @@ const Experiences = () => {
               >
                 {/* Index number */}
                 <div className="flex-shrink-0">
-                  <span className="text-5xl md:text-6xl font-extralight text-gray-200 dark:text-gray-800 group-hover:text-sky-500/30 transition-colors duration-300">
+                  <span className="text-5xl md:text-6xl font-extralight text-black/20 dark:text-gray-800 group-hover:text-sky-500/30 transition-colors duration-300">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
@@ -258,17 +258,17 @@ const Experiences = () => {
                 {/* Content */}
                 <div className="flex-1">
                   <div className="flex items-center gap-3 flex-wrap">
-                    <h3 className="text-xl md:text-2xl font-light tracking-wide text-gray-800 dark:text-gray-100 group-hover:text-sky-500 transition-colors duration-300">
+                    <h3 className="text-xl md:text-2xl font-light tracking-wide text-black dark:text-gray-100 group-hover:text-sky-500 transition-colors duration-300">
                       {milestone.subtitle}
                     </h3>
                     <span className="text-xs text-sky-500">
                       {formatDateRange(milestone.startDate, milestone.endDate)}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  <p className="text-sm text-black/70 dark:text-gray-400 mt-1">
                     {milestone.title}
                   </p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl">
+                  <p className="text-sm text-black/70 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl">
                     {milestone.description}
                   </p>
                   {/* Subtle divider */}
@@ -285,7 +285,7 @@ const Experiences = () => {
             href="#reach-out"
             className="group flex items-center justify-center gap-3 py-4 px-8 mx-auto w-fit rounded-full bg-gradient-to-r from-sky-500/10 to-emerald-500/10 border border-sky-500/20 hover:border-sky-500/40 hover:from-sky-500/20 hover:to-emerald-500/20 transition-all duration-300"
           >
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="text-sm font-medium text-black dark:text-gray-300">
               What&apos;s next? <span className="text-sky-500 font-semibold">Let&apos;s build something together</span>
             </span>
             <FontAwesomeIcon 
@@ -323,14 +323,14 @@ const Experiences = () => {
                     </span>
                   </div>
                   <h3 className="text-sm font-light uppercase tracking-tight">{hoveredMilestone.title}</h3>
-                  <p className="text-xs text-gray-400 dark:text-gray-500">{hoveredMilestone.subtitle}</p>
+                  <p className="text-xs text-black/60 dark:text-gray-500">{hoveredMilestone.subtitle}</p>
                 </div>
               </div>
             </div>
             
             {/* Content */}
             <div className="p-4">
-              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-4">
+              <p className="text-xs text-black/80 dark:text-gray-300 leading-relaxed line-clamp-4">
                 {hoveredMilestone.description}
               </p>
             </div>

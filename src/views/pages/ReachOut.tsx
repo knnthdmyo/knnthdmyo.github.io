@@ -138,7 +138,7 @@ const ReachOut = () => {
 
         {/* Social Networks */}
         <div className="px-8 md:px-20">
-          <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-4">Follow Me</p>
+          <p className="text-[10px] uppercase tracking-widest text-black/60 dark:text-gray-400 mb-4">Follow Me</p>
           <div className="flex gap-4">
             {socialNetworks.map((social, index) => (
               <a
@@ -158,10 +158,10 @@ const ReachOut = () => {
       {/* Footer */}
       <div className="border-t border-gray-200/20 dark:border-gray-700/20 py-8 px-8 md:px-20">
         <div className="flex flex-col items-center gap-4 text-center">
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-black/60 dark:text-gray-400">
             © {dayjs().year()} knnthdmyo • Built with React, TypeScript & too much coffee
           </p>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 text-[9px] text-gray-400/50">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 text-[9px] text-black/40 dark:text-gray-400/50">
             <span>500k+ lines of code</span>
             <span>•</span>
             <span>∞ bugs squashed</span>
