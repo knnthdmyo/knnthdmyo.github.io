@@ -1,10 +1,9 @@
-import { useMemo } from 'react';
 import { ContactService } from '@/services';
 
 export const useContact = () => {
-  const contactInfo = useMemo(() => ContactService.getContactInfo(), []);
-  const socialNetworks = useMemo(() => ContactService.getSocialNetworks(), []);
-  const email = useMemo(() => ContactService.getEmail(), []);
+  const contactInfo = ContactService.getContactInfo();
+  const socialNetworks = ContactService.getSocialNetworks();
+  const email = ContactService.getEmail();
 
   return {
     contactInfo,
@@ -12,4 +11,3 @@ export const useContact = () => {
     email,
   };
 };
-

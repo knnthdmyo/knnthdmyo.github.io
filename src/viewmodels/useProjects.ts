@@ -1,11 +1,11 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { ProjectService } from '@/services';
 
 export const useProjects = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const projects = useMemo(() => ProjectService.getProjects(), []);
-  const projectCount = useMemo(() => ProjectService.getProjectCount(), []);
+  const projects = ProjectService.getProjects();
+  const projectCount = ProjectService.getProjectCount();
 
   const toggleExpanded = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -23,4 +23,3 @@ export const useProjects = () => {
     isExpanded,
   };
 };
-

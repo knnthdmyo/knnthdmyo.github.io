@@ -1,6 +1,7 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import { ExperienceService } from '@/services';
+import { formatHours } from '@/utils';
 
 const CAREER_START = dayjs('2019-03-19');
 const VACANT_START = dayjs('2024-10-01');
@@ -22,7 +23,7 @@ export const useHeroStats = () => {
     projects: 10, // Static value for projects worked on
   });
 
-  const companyCount = useMemo(() => ExperienceService.getCompanyCount(), []);
+  const companyCount = ExperienceService.getCompanyCount();
 
   useEffect(() => {
     const calculateStats = () => {
@@ -30,7 +31,7 @@ export const useHeroStats = () => {
       const totalYears = now.diff(CAREER_START, 'year', true);
       const gapYears = VACANT_END.diff(VACANT_START, 'year', true);
       const diffYears = totalYears - gapYears;
-      
+
       const totalWeeks = now.diff(CAREER_START, 'week', true);
       const gapWeeks = VACANT_END.diff(VACANT_START, 'week', true);
       const diffWeeks = totalWeeks - gapWeeks;
@@ -50,16 +51,8 @@ export const useHeroStats = () => {
     return () => clearInterval(interval);
   }, [companyCount]);
 
-  const formatHours = (hours: number): string => {
-    if (hours >= 1000) {
-      return `${(hours / 1000).toFixed(1)}k`;
-    }
-    return hours.toLocaleString();
-  };
-
   return {
     stats,
     formatHours,
   };
 };
-
