@@ -67,8 +67,13 @@ portfolio/
 │   │   ├── globals.css      # Global styles
 │   │   ├── layout.tsx       # Root layout
 │   │   └── page.tsx         # Home page
+│   ├── config/              # App configuration
+│   ├── constants/           # Static constants
+│   ├── hooks/               # Reusable React hooks
 │   ├── models/              # TypeScript interfaces
+│   ├── providers/           # React context providers
 │   ├── services/            # Data services
+│   ├── utils/               # Helper/utility functions
 │   ├── viewmodels/          # Business logic hooks
 │   └── views/
 │       ├── components/      # Reusable components
