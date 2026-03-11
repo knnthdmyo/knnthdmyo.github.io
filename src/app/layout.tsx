@@ -7,7 +7,8 @@ export const metadata: Metadata = {
     default: 'knnthdmyo - Frontend Engineer | React & React Native Developer',
     template: '%s | knnthdmyo',
   },
-  description: '6+ years shipping React web apps and React Native mobile experiences. Building fast, accessible interfaces with TypeScript, Redux, and Tailwind. Specializing in SaaS dashboards, PWAs, and cross-platform apps.',
+  description:
+    '6+ years shipping React web apps and React Native mobile experiences. Building fast, accessible interfaces with TypeScript, Redux, and Tailwind. Specializing in SaaS dashboards, PWAs, and cross-platform apps.',
   keywords: [
     'Frontend Developer',
     'React Developer',
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
     'Mobile Development',
     'Portfolio',
     'knnthdmyo',
-    'Kenneth Damayo',
+    'Kenneth Demayo',
   ],
-  authors: [{ name: 'Kenneth Damayo (knnthdmyo)' }],
-  creator: 'Kenneth Damayo',
-  publisher: 'Kenneth Damayo',
+  authors: [{ name: 'Kenneth Demayo (knnthdmyo)' }],
+  creator: 'Kenneth Demayo',
+  publisher: 'Kenneth Demayo',
   formatDetection: {
     email: false,
     address: false,
@@ -37,7 +38,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://knnthdmyo.com/',
     title: 'knnthdmyo - Frontend Engineer | React & React Native Developer',
-    description: '6+ years shipping React web apps and React Native mobile experiences. Building fast, accessible interfaces with TypeScript, Redux, and Tailwind.',
+    description:
+      '6+ years shipping React web apps and React Native mobile experiences. Building fast, accessible interfaces with TypeScript, Redux, and Tailwind.',
     siteName: 'knnthdmyo Portfolio',
     images: [
       {
@@ -51,7 +53,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'knnthdmyo - Frontend Engineer | React & React Native Developer',
-    description: '6+ years shipping React web apps and React Native mobile experiences. Building fast, accessible interfaces with TypeScript, Redux, and Tailwind.',
+    description:
+      '6+ years shipping React web apps and React Native mobile experiences. Building fast, accessible interfaces with TypeScript, Redux, and Tailwind.',
     creator: '@knnthdmyo',
     images: ['/images/favicon.png'],
   },
@@ -80,10 +83,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
-        
+        <ThemeProvider>{children}</ThemeProvider>
+
         {/* Tawk.to Script */}
         <script
           dangerouslySetInnerHTML={{
@@ -104,4 +105,3 @@ export default function RootLayout({
     </html>
   );
 }
-

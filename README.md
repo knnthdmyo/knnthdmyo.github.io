@@ -1,4 +1,4 @@
-# Kenneth Damayo Portfolio
+# Kenneth Demayo Portfolio
 
 A modern, performant portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
@@ -127,15 +127,19 @@ npm run deploy
 ## 🎯 Key Components
 
 ### Custom Cursor
+
 A custom animated cursor with smooth trail effect that enhances the user experience on desktop devices.
 
 ### World Map
+
 Interactive map visualization showing global collaboration locations with hover tooltips.
 
 ### Command Palette
+
 Quick navigation and search functionality accessible via keyboard shortcut (⌘K / Ctrl+K).
 
 ### Career Timeline
+
 Dynamic roadmap visualization showing work experience with proportional spacing based on actual time periods.
 
 ## 🔧 Configuration
@@ -151,6 +155,7 @@ Create a `.env.local` file for environment-specific configurations:
 ### Next.js Config
 
 Configured for static export with the following settings:
+
 - Output: `export`
 - Images: `unoptimized: true`
 - Trailing slash: `true`
@@ -168,14 +173,15 @@ This is a personal portfolio project, but suggestions and feedback are welcome!
 
 ## 📄 License
 
-© 2025 Kenneth Damayo. All rights reserved.
+© 2025 Kenneth Demayo. All rights reserved.
 
 ## 👨‍💻 Author
 
-**Kenneth Damayo**
+**Kenneth Demayo**
+
 - Portfolio: [knnthdmyo.com](https://knnthdmyo.com)
 - GitHub: [@knnthdmyo](https://github.com/knnthdmyo)
-- LinkedIn: [Kenneth Damayo](https://www.linkedin.com/in/kennethgdemayo/)
+- LinkedIn: [Kenneth Demayo](https://www.linkedin.com/in/kennethgdemayo/)
 
 ---
 
