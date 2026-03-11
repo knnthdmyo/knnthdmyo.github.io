@@ -772,14 +772,9 @@
 
 @layer base {
   @media (hover: hover) and (pointer: fine) {
-    * {
+    .cursor-none-scope,
+    .cursor-none-scope * {
       cursor: none !important;
-    }
-  }
-
-  @media (hover: none) or (pointer: coarse) {
-    * {
-      cursor: auto !important;
     }
   }
 }
