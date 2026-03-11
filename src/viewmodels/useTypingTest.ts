@@ -27,6 +27,7 @@ interface WordState {
 type TestStatus = 'idle' | 'running' | 'finished';
 
 const STORAGE_KEY = 'typing-test-results';
+const DURATION_KEY = 'typing-test-duration';
 const MAX_RESULTS = 50;
 
 function generateWords(count: number): string[] {
@@ -52,6 +53,19 @@ function saveResult(result: TypingResult) {
   results.unshift(result);
   if (results.length > MAX_RESULTS) results.length = MAX_RESULTS;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(results));
+}
+
+function loadDuration(): TimeOption {
+  if (typeof window === 'undefined') return 30;
+  try {
+    const stored = localStorage.getItem(DURATION_KEY);
+    const parsed = stored ? Number(stored) : 30;
+    return TIME_OPTIONS.includes(parsed as TimeOption)
+      ? (parsed as TimeOption)
+      : 30;
+  } catch {
+    return 30;
+  }
 }
 
 export function useTypingTest() {
@@ -91,9 +105,12 @@ export function useTypingTest() {
     setResult(null);
   }, [duration]);
 
-  // Load history on mount
+  // Load history and saved duration on mount
   useEffect(() => {
     setHistory(loadResults());
+    const saved = loadDuration();
+    setDuration(saved);
+    setTimeLeft(saved);
     initializeTest();
   }, [initializeTest]);
 
@@ -230,6 +247,7 @@ export function useTypingTest() {
   const changeDuration = useCallback((newDuration: TimeOption) => {
     setDuration(newDuration);
     setTimeLeft(newDuration);
+    localStorage.setItem(DURATION_KEY, String(newDuration));
   }, []);
 
   const restart = useCallback(() => {

@@ -1,3 +1,11 @@
+@import '../views/shared/pages.style.css';
+@import '../views/components/LoadingScreen/LoadingScreen.style.css';
+@import '../views/components/Navbar/Navbar.style.css';
+@import '../views/pages/Hero/Hero.style.css';
+@import '../views/pages/Projects/Projects.style.css';
+@import '../views/pages/Technologies/Technologies.style.css';
+@import '../views/pages/ReachOut/ReachOut.style.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,10 +19,6 @@
     @apply scroll-smooth;
   }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /* ============================================================================
    ANIMATIONS - Core keyframes for animations used throughout the app
@@ -552,221 +556,6 @@
 }
 
 /* ============================================================================
-   COMPONENT UTILITIES - Reusable modular component classes
-   ============================================================================ */
-
-@layer components {
-  /* Page Headers */
-  .page-header {
-    @apply px-8 md:px-20;
-  }
-
-  .page-subtitle {
-    @apply text-sm uppercase tracking-widest text-sky-500 font-medium;
-  }
-
-  .page-title {
-    @apply md:text-6xl text-4xl font-light tracking-tight text-black dark:text-gray-100;
-  }
-
-  .page-title-divider {
-    @apply flex items-center gap-3 mt-3;
-  }
-
-  .page-divider-line {
-    @apply w-12 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400;
-  }
-
-  .page-divider-text {
-    @apply text-xs text-black/60 dark:text-gray-400;
-  }
-
-  /* Section Headers */
-  .section-title {
-    @apply md:text-6xl text-4xl font-light tracking-tight text-black dark:text-gray-100;
-  }
-
-  .section-subtitle {
-    @apply text-xl text-black/70 dark:text-gray-300 mt-2 font-light;
-  }
-
-  /* Navigation Links */
-  .nav-link {
-    @apply flex items-center gap-2 text-black/70 dark:text-gray-500 hover:text-sky-500 transition-colors duration-300;
-  }
-
-  .nav-link-mobile {
-    @apply flex items-center gap-3 py-3 px-4 text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-sky-400 hover:bg-white/5 rounded-lg transition-all duration-300;
-  }
-
-  .nav-link-mobile-primary {
-    @apply flex items-center gap-3 py-3 px-4 text-sm uppercase tracking-widest font-medium text-sky-400 hover:text-sky-300 hover:bg-sky-500/10 rounded-lg transition-all duration-300;
-  }
-
-  /* Buttons */
-  .btn-primary {
-    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full bg-sky-500 hover:bg-sky-400 text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30;
-  }
-
-  .btn-icon {
-    @apply text-2xl text-black/60 dark:text-gray-400 hover:text-sky-500 hover:scale-110 transition-all duration-300;
-  }
-
-  /* Contact Items */
-  .contact-item {
-    @apply flex items-center gap-4 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards] text-left hover:translate-x-2 transition-all duration-300 cursor-pointer;
-  }
-
-  .contact-icon {
-    @apply text-sky-500 w-5 transition-transform duration-300;
-  }
-
-  .contact-item:hover .contact-icon {
-    @apply scale-110;
-  }
-
-  .contact-value {
-    @apply text-black dark:text-gray-300 transition-colors;
-  }
-
-  .contact-item:hover .contact-value {
-    @apply text-sky-500 dark:text-sky-400;
-  }
-
-  /* Project Cards */
-  .project-card-group {
-    @apply group;
-  }
-
-  .project-number {
-    @apply text-5xl md:text-6xl font-extralight text-black/20 dark:text-gray-800 transition-colors duration-300;
-  }
-
-  .project-card-group:hover .project-number {
-    @apply text-sky-500/30;
-  }
-
-  .project-title {
-    @apply text-xl md:text-2xl font-light tracking-wide text-black dark:text-gray-200 transition-colors duration-300;
-  }
-
-  .project-card-group:hover .project-title {
-    @apply text-sky-500;
-  }
-
-  .project-description {
-    @apply text-sm text-black/70 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl;
-  }
-
-  .project-tags-container {
-    @apply flex flex-wrap gap-2 mt-3;
-  }
-
-  /* Tech Cards */
-  .tech-link {
-    @apply inline-flex items-center gap-2 text-sm text-black dark:text-gray-400 transition-all duration-300;
-  }
-
-  .tech-link:hover {
-    @apply text-sky-500;
-  }
-
-  .tech-icon {
-    @apply text-xs transition-transform duration-300;
-  }
-
-  .tech-link:hover .tech-icon {
-    @apply scale-110;
-  }
-
-  .tech-name {
-    @apply transition-transform duration-300;
-  }
-
-  .tech-link:hover .tech-name {
-    @apply translate-x-0.5;
-  }
-
-  /* Stats Display */
-  .stat-box {
-    @apply text-center;
-  }
-
-  .stat-number {
-    @apply text-3xl md:text-4xl font-light text-sky-500 tabular-nums;
-  }
-
-  .stat-label {
-    @apply text-[10px] uppercase tracking-widest text-black/60 dark:text-gray-400 mt-1;
-  }
-
-  /* Gradient Dividers */
-  .gradient-divider {
-    @apply flex items-center gap-3 mt-3;
-  }
-
-  .gradient-line {
-    @apply w-12 h-0.5 bg-gradient-to-r from-sky-400 to-cyan-400;
-  }
-
-  .gradient-line-full {
-    @apply flex-1 h-px bg-gradient-to-r from-gray-200 dark:from-gray-800 to-transparent;
-  }
-
-  /* Hover Effects */
-  .hover-sky-text {
-    @apply hover:text-sky-500 transition-colors duration-300;
-  }
-
-  .hover-scale-up {
-    @apply hover:scale-110 transition-transform duration-300;
-  }
-
-  .hover-translate-x {
-    @apply hover:translate-x-2 transition-all duration-300;
-  }
-
-  .hover-translate-up {
-    @apply hover:-translate-y-1 transition-all duration-300;
-  }
-
-  /* Loading State */
-  .loading-logo {
-    @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-black dark:text-gray-100 animate-pulse select-none;
-  }
-
-  .loading-subtitle {
-    @apply text-xl text-black/70 dark:text-gray-300 mt-2 font-light text-center;
-  }
-
-  /* Expand/Collapse Button */
-  .expand-button {
-    @apply flex items-center gap-2 text-xs text-black/60 dark:text-gray-400 hover:text-sky-500 transition-all duration-300 opacity-0 md:opacity-0 md:group-hover/header:opacity-100 md:-translate-x-2 md:group-hover/header:translate-x-0;
-  }
-
-  /* Animation utilities */
-  .animate-stagger-1 {
-    animation-delay: 100ms;
-  }
-
-  .animate-stagger-2 {
-    animation-delay: 200ms;
-  }
-
-  .animate-stagger-3 {
-    animation-delay: 300ms;
-  }
-
-  .animate-stagger-4 {
-    animation-delay: 400ms;
-  }
-}
-
-/* ============================================================================
    CURSOR STYLING - Hide default cursor on desktop, show on touch
    ============================================================================ */
 
@@ -776,15 +565,5 @@
     .cursor-none-scope * {
       cursor: none !important;
     }
-  }
-}
-
-/* ============================================================================
-   BASE STYLES - Global element styling
-   ============================================================================ */
-
-@layer base {
-  html {
-    @apply scroll-smooth;
   }
 }

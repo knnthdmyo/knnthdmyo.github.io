@@ -6,4 +6,4 @@ export { default as CommandPalette } from './CommandPalette';
 export { default as LoadingScreen } from './LoadingScreen';
 export { default as FallingCodeBlocks } from './FallingCodeBlocks';
 export { ThemeToggle } from './ThemeToggle';
-
+export { default as WorldMap } from './WorldMap';

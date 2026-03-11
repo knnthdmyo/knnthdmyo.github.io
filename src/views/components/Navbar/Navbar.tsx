@@ -14,7 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ThemeToggle } from './ThemeToggle';
+import { ThemeToggle } from '../ThemeToggle';
 
 interface NavBarProps {
   onSearchClick?: () => void;

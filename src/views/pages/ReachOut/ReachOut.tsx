@@ -3,11 +3,16 @@
 import dayjs from 'dayjs';
 import { useContact } from '@/viewmodels';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faDownload, faCheck } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPaperPlane,
+  faDownload,
+  faCheck,
+} from '@fortawesome/free-solid-svg-icons';
 import { ContactInfo } from '@/models';
 import { useState } from 'react';
 
-const CV_LINK = 'https://drive.google.com/uc?export=download&id=1BwI5OSUnxb8c8usowPTB-DQKRDB79RC8';
+const CV_LINK =
+  'https://drive.google.com/uc?export=download&id=1BwI5OSUnxb8c8usowPTB-DQKRDB79RC8';
 
 // Email template
 const createEmailTemplate = () => {
@@ -24,7 +29,7 @@ Best regards,
 [Your Name]
 [Your Company/Role (optional)]
 [Your Contact Information (optional)]`);
-  
+
   return { subject, body };
 };
 
@@ -39,14 +44,16 @@ const ReachOut = () => {
         const { subject, body } = createEmailTemplate();
         window.location.href = `mailto:${contact.value}?subject=${subject}&body=${body}`;
         break;
-      
+
       case 'phone':
         // Try to open phone app (works on mobile)
         // Remove spaces for tel: link
         const phoneNumber = contact.value.replace(/\s/g, '');
         const telLink = `tel:${phoneNumber}`;
-        const canOpenPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        
+        const canOpenPhone = /Android|iPhone|iPad|iPod/i.test(
+          navigator.userAgent
+        );
+
         if (canOpenPhone) {
           window.location.href = telLink;
         } else {
@@ -60,7 +67,7 @@ const ReachOut = () => {
           }
         }
         break;
-      
+
       case 'location':
         // Open Google Maps with coordinates
         if (contact.coordinates) {
@@ -77,7 +84,9 @@ const ReachOut = () => {
       {/* Copied to Clipboard Toast */}
       <div
         className={`fixed top-24 right-8 z-[9999] flex items-center gap-3 px-6 py-3 rounded-full bg-sky-500/90 dark:bg-sky-500/80 backdrop-blur-xl text-white shadow-lg shadow-sky-500/30 border border-sky-400/20 transition-all duration-300 ${
-          showCopiedToast ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8 pointer-events-none'
+          showCopiedToast
+            ? 'opacity-100 translate-x-0'
+            : 'opacity-0 translate-x-8 pointer-events-none'
         }`}
       >
         <FontAwesomeIcon icon={faCheck} className="text-sm" />
@@ -104,13 +113,8 @@ const ReachOut = () => {
               className="contact-item"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <FontAwesomeIcon 
-                icon={contact.icon} 
-                className="contact-icon" 
-              />
-              <span className="contact-value">
-                {contact.value}
-              </span>
+              <FontAwesomeIcon icon={contact.icon} className="contact-icon" />
+              <span className="contact-value">{contact.value}</span>
             </button>
           ))}
         </div>
@@ -138,7 +142,9 @@ const ReachOut = () => {
 
         {/* Social Networks */}
         <div className="px-8 md:px-20">
-          <p className="text-[10px] uppercase tracking-widest text-black/60 dark:text-gray-400 mb-4">Follow Me</p>
+          <p className="text-[10px] uppercase tracking-widest text-black/60 dark:text-gray-400 mb-4">
+            Follow Me
+          </p>
           <div className="flex gap-4">
             {socialNetworks.map((social, index) => (
               <a
@@ -159,7 +165,8 @@ const ReachOut = () => {
       <div className="border-t border-gray-200/20 dark:border-gray-700/20 py-8 px-8 md:px-20">
         <div className="flex flex-col items-center gap-4 text-center">
           <p className="text-xs text-black/60 dark:text-gray-400">
-            © {dayjs().year()} knnthdmyo • Built with React, TypeScript & too much coffee
+            © {dayjs().year()} knnthdmyo • Built with React, TypeScript & too
+            much coffee
           </p>
           <div className="flex flex-wrap justify-center gap-2 md:gap-3 text-[9px] text-black/40 dark:text-gray-400/50">
             <span>500k+ lines of code</span>

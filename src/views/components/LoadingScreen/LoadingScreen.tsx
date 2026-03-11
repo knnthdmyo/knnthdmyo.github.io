@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import FallingCodeBlocks from './FallingCodeBlocks';
+import FallingCodeBlocks from '../FallingCodeBlocks';
 
 interface LoadingScreenProps {
   showOnInactivity?: boolean;

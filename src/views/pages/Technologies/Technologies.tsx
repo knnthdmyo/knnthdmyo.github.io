@@ -44,8 +44,8 @@ const Technologies = () => {
                   rel="noreferrer"
                   className="tech-link"
                 >
-                  <FontAwesomeIcon 
-                    icon={tech.icon} 
+                  <FontAwesomeIcon
+                    icon={tech.icon}
                     className="tech-icon"
                     style={{ color: tech.color }}
                   />

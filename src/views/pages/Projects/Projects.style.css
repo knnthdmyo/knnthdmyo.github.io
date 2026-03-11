@@ -1,0 +1,29 @@
+@layer components {
+  .project-card-group {
+    @apply group;
+  }
+
+  .project-number {
+    @apply text-5xl md:text-6xl font-extralight text-black/20 dark:text-gray-800 transition-colors duration-300;
+  }
+
+  .project-card-group:hover .project-number {
+    @apply text-sky-500/30;
+  }
+
+  .project-title {
+    @apply text-xl md:text-2xl font-light tracking-wide text-black dark:text-gray-200 transition-colors duration-300;
+  }
+
+  .project-card-group:hover .project-title {
+    @apply text-sky-500;
+  }
+
+  .project-description {
+    @apply text-sm text-black/70 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl;
+  }
+
+  .project-tags-container {
+    @apply flex flex-wrap gap-2 mt-3;
+  }
+}
