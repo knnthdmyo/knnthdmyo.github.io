@@ -4,7 +4,11 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { useProjects } from '@/viewmodels';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import {
+  faImage,
+  faChevronDown,
+  faArrowUpRightFromSquare,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Projects = () => {
   const { projects } = useProjects();
@@ -31,12 +35,9 @@ const Projects = () => {
             <span className="page-subtitle">Portfolio</span>
             <h1 className="page-title">Projects</h1>
           </div>
-          
+
           {/* See All Button - Mobile always visible, Desktop on hover */}
-          <button
-            onClick={toggleShowAll}
-            className="expand-button mb-2"
-          >
+          <button onClick={toggleShowAll} className="expand-button mb-2">
             <span>{showAll ? 'Collapse' : 'Expand All'}</span>
             <FontAwesomeIcon
               icon={faChevronDown}
@@ -46,7 +47,9 @@ const Projects = () => {
         </div>
         <div className="flex items-center gap-3 mt-3">
           <div className="w-12 h-0.5 bg-gradient-to-r from-violet-400 to-sky-400" />
-          <p className="text-xs text-black/60 dark:text-gray-400">{projects.length} featured projects</p>
+          <p className="text-xs text-black/60 dark:text-gray-400">
+            {projects.length} featured projects
+          </p>
         </div>
       </div>
 
@@ -73,9 +76,7 @@ const Projects = () => {
               {/* Content */}
               <div className="flex-1">
                 <div className="flex items-center gap-3">
-                  <h3 className="project-title">
-                    {project.title}
-                  </h3>
+                  <h3 className="project-title">{project.title}</h3>
                   {/* Expand arrow - only visible on hover, hidden when showAll */}
                   {!showAll && (
                     <FontAwesomeIcon
@@ -86,33 +87,51 @@ const Projects = () => {
                     />
                   )}
                 </div>
-                <p className="project-description">
-                  {project.description}
-                </p>
+                <p className="project-description">{project.description}</p>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 mt-2 text-sm font-medium text-sky-500 hover:text-sky-400 transition-colors duration-200"
+                  >
+                    <span>Visit Site</span>
+                    <FontAwesomeIcon
+                      icon={faArrowUpRightFromSquare}
+                      className="text-xs"
+                    />
+                  </a>
+                )}
               </div>
             </div>
 
             {/* Expanded Image Section */}
             <div
               className={`overflow-hidden transition-all duration-500 ease-out ${
-                showAll || expandedProject === index ? 'max-h-96 opacity-100 mt-6' : 'max-h-0 opacity-0 mt-0'
+                showAll || expandedProject === index
+                  ? 'max-h-[800px] opacity-100 mt-6'
+                  : 'max-h-0 opacity-0 mt-0'
               }`}
               style={{ transitionDelay: showAll ? `${index * 100}ms` : '0ms' }}
             >
               <div className="md:ml-[88px] rounded-xl overflow-hidden">
                 {project.image ? (
-                  <div className="relative w-full max-w-2xl h-64 md:h-80 rounded-xl overflow-hidden">
+                  <div className="relative w-full max-w-2xl rounded-xl overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
-                      fill
-                      className="object-cover"
+                      width={672}
+                      height={672}
+                      className="object-contain w-full h-auto"
                     />
                   </div>
                 ) : (
-                  <div className="w-full max-w-2xl h-64 md:h-80 flex flex-col items-center justify-center gap-3 text-black/60 dark:text-gray-500 bg-gray-100 dark:bg-gray-800/30 rounded-xl">
+                  <div className="w-full max-w-2xl aspect-video flex flex-col items-center justify-center gap-3 text-black/60 dark:text-gray-500 bg-gray-100 dark:bg-gray-800/30 rounded-xl">
                     <FontAwesomeIcon icon={faImage} className="text-4xl" />
-                    <span className="text-xs uppercase tracking-wider">No preview available</span>
+                    <span className="text-xs uppercase tracking-wider">
+                      No preview available
+                    </span>
                   </div>
                 )}
               </div>
