@@ -16,7 +16,6 @@ import { ThemeToggle } from '@/views/components/ThemeToggle';
 
 const TypingTest = () => {
   const {
-    duration,
     timeLeft,
     status,
     words,
@@ -26,10 +25,8 @@ const TypingTest = () => {
     history,
     inputRef,
     handleInput,
-    changeDuration,
     restart,
     clearHistory,
-    timeOptions,
   } = useTypingTest();
 
   const wordsContainerRef = useRef<HTMLDivElement>(null);
@@ -106,25 +103,8 @@ const TypingTest = () => {
       <main className="flex-1 flex flex-col items-center justify-center px-4 md:px-8 max-w-4xl mx-auto w-full">
         {status !== 'finished' ? (
           <>
-            {/* Duration selector + Timer */}
+            {/* Timer */}
             <div className="flex items-center gap-6 mb-8">
-              <div className="flex items-center gap-1 bg-gray-200/60 dark:bg-white/5 rounded-lg p-1">
-                {timeOptions.map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => changeDuration(t)}
-                    disabled={status === 'running'}
-                    className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
-                      duration === t
-                        ? 'bg-sky-500 text-white shadow-sm'
-                        : 'text-black/50 dark:text-gray-500 hover:text-black dark:hover:text-gray-300 disabled:opacity-50'
-                    }`}
-                  >
-                    {t}s
-                  </button>
-                ))}
-              </div>
-
               <div
                 className={`text-2xl font-mono font-bold tabular-nums transition-colors ${
                   timeLeft <= 5 && status === 'running'

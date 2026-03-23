@@ -27,7 +27,6 @@ interface WordState {
 type TestStatus = 'idle' | 'running' | 'finished';
 
 const STORAGE_KEY = 'typing-test-results';
-const DURATION_KEY = 'typing-test-duration';
 const MAX_RESULTS = 50;
 
 function generateWords(count: number): string[] {
@@ -55,22 +54,9 @@ function saveResult(result: TypingResult) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(results));
 }
 
-function loadDuration(): TimeOption {
-  if (typeof window === 'undefined') return 30;
-  try {
-    const stored = localStorage.getItem(DURATION_KEY);
-    const parsed = stored ? Number(stored) : 30;
-    return TIME_OPTIONS.includes(parsed as TimeOption)
-      ? (parsed as TimeOption)
-      : 30;
-  } catch {
-    return 30;
-  }
-}
-
 export function useTypingTest() {
-  const [duration, setDuration] = useState<TimeOption>(30);
-  const [timeLeft, setTimeLeft] = useState<number>(30);
+  const duration: TimeOption = TIME_OPTIONS[0];
+  const [timeLeft, setTimeLeft] = useState<number>(duration);
   const [status, setStatus] = useState<TestStatus>('idle');
   const [words, setWords] = useState<WordState[]>([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -105,12 +91,9 @@ export function useTypingTest() {
     setResult(null);
   }, [duration]);
 
-  // Load history and saved duration on mount
+  // Load history on mount
   useEffect(() => {
     setHistory(loadResults());
-    const saved = loadDuration();
-    setDuration(saved);
-    setTimeLeft(saved);
     initializeTest();
   }, [initializeTest]);
 
@@ -244,12 +227,6 @@ export function useTypingTest() {
     [status, words, currentWordIndex, startTest]
   );
 
-  const changeDuration = useCallback((newDuration: TimeOption) => {
-    setDuration(newDuration);
-    setTimeLeft(newDuration);
-    localStorage.setItem(DURATION_KEY, String(newDuration));
-  }, []);
-
   const restart = useCallback(() => {
     initializeTest();
     setTimeout(() => inputRef.current?.focus(), 50);
@@ -273,9 +250,7 @@ export function useTypingTest() {
     inputRef,
     // Actions
     handleInput,
-    changeDuration,
     restart,
     clearHistory,
-    timeOptions: TIME_OPTIONS,
   };
 }

@@ -295,6 +295,6 @@ export const WORD_LIST = [
   'interface',
 ];
 
-export const TIME_OPTIONS = [15, 30, 60, 120] as const;
+export const TIME_OPTIONS = [15] as const;
 
 export type TimeOption = (typeof TIME_OPTIONS)[number];
