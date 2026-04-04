@@ -1,6 +1,5 @@
 # Route-specific rewrites
 /portfolio/*   /portfolio/index.html   200
-/typing-test/* /typing-test/index.html 200
 
 # Redirect root to portfolio
 /              /portfolio              302

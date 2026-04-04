@@ -10,9 +10,7 @@ import {
   faBriefcase,
   faEnvelope,
   faCode,
-  faKeyboard,
 } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ThemeToggle } from '@/views/components/ThemeToggle';
 
@@ -58,15 +56,6 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
     { href: '#projects', label: 'Projects', icon: faBriefcase },
     { href: '#technologies', label: 'Tech Stack', icon: faCode },
     { href: '#reach-out', label: 'Connect', icon: faEnvelope },
-  ];
-
-  const externalLinks = [
-    {
-      href: '/typing-test',
-      label: 'Typing Test',
-      icon: faKeyboard,
-      isRoute: true,
-    },
   ];
 
   return (
@@ -132,14 +121,6 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
                     <span>Download CV</span>
                   </a>
                 </li>
-                {externalLinks.map((link) => (
-                  <li key={link.href} className="hidden sm:block">
-                    <Link href={link.href} className="nav-link">
-                      <FontAwesomeIcon icon={link.icon} className="text-xs" />
-                      <span>{link.label}</span>
-                    </Link>
-                  </li>
-                ))}
               </ul>
 
               {/* Search */}
@@ -322,18 +303,6 @@ const NavBar = ({ onSearchClick }: NavBarProps) => {
                   <span>Download CV</span>
                 </a>
               </li>
-              {externalLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={closeMobileMenu}
-                    className="nav-link-mobile"
-                  >
-                    <FontAwesomeIcon icon={link.icon} className="text-xs" />
-                    <span>{link.label}</span>
-                  </Link>
-                </li>
-              ))}
             </ul>
           </nav>
 

@@ -1,5 +1,4 @@
 @import '../views/shared/pages.style.css';
-@import '../views/components/LoadingScreen/LoadingScreen.style.css';
 @import '../views/components/Navbar/Navbar.style.css';
 @import '../views/pages/Hero/Hero.style.css';
 @import '../views/pages/Projects/Projects.style.css';
@@ -41,7 +40,8 @@
 
   /* Bump effect for interactive elements */
   @keyframes bump {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
     }
     50% {
@@ -79,36 +79,29 @@
 
   /* Shake animation for cursor at max size */
   @keyframes shake {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate(-15%, -15%) rotate(-90deg) translateX(0);
     }
-    10%, 30%, 50%, 70%, 90% {
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
       transform: translate(-15%, -15%) rotate(-90deg) translateX(-4px);
     }
-    20%, 40%, 60%, 80% {
+    20%,
+    40%,
+    60%,
+    80% {
       transform: translate(-15%, -15%) rotate(-90deg) translateX(4px);
     }
   }
 
-  /* Intense pulse animation for cursor at 300px+ */
-  @keyframes pulse-intense {
-    0%, 100% {
-      opacity: 1;
-      filter: brightness(1);
-    }
-    50% {
-      opacity: 0.7;
-      filter: brightness(1.3);
-    }
-  }
-
-  .animate-pulse-intense {
-    animation: pulse-intense 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
   /* Heartbeat pulse effect for current milestone */
   @keyframes heartbeat {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
       box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
     }
@@ -128,157 +121,6 @@
 
   .animate-heartbeat {
     animation: heartbeat 2s infinite;
-  }
-
-  /* Code rain falling animation */
-  @keyframes code-fall {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(50%);
-    }
-  }
-
-  /* Single rain drop animation */
-  @keyframes rain-drop {
-    0% {
-      transform: translateY(0);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.25;
-    }
-    90% {
-      opacity: 0.25;
-    }
-    100% {
-      transform: translateY(200vh);
-      opacity: 0;
-    }
-  }
-
-  /* Fast rain drop for loading screen */
-  @keyframes rain-drop-fast {
-    0% {
-      transform: translateY(0);
-      opacity: 0;
-    }
-    5% {
-      opacity: 0.4;
-    }
-    95% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translateY(200vh);
-      opacity: 0;
-    }
-  }
-
-  /* Diagonal left rain drop animation */
-  @keyframes rain-drop-fast-diagonal-left {
-    0% {
-      transform: translate(-20vw, 0);
-      opacity: 0;
-    }
-    5% {
-      opacity: 0.4;
-    }
-    95% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translate(0, 200vh);
-      opacity: 0;
-    }
-  }
-
-  /* Diagonal right rain drop animation */
-  @keyframes rain-drop-fast-diagonal-right {
-    0% {
-      transform: translate(20vw, 0);
-      opacity: 0;
-    }
-    5% {
-      opacity: 0.4;
-    }
-    95% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translate(0, 200vh);
-      opacity: 0;
-    }
-  }
-
-  /* Curved left rain drop animation */
-  @keyframes rain-drop-fast-curve-left {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-      opacity: 0;
-    }
-    5% {
-      opacity: 0.4;
-    }
-    50% {
-      transform: translate(-10vw, 100vh) rotate(-180deg);
-    }
-    95% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translate(0, 200vh) rotate(-360deg);
-      opacity: 0;
-    }
-  }
-
-  /* Curved right rain drop animation */
-  @keyframes rain-drop-fast-curve-right {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-      opacity: 0;
-    }
-    5% {
-      opacity: 0.4;
-    }
-    50% {
-      transform: translate(10vw, 100vh) rotate(180deg);
-    }
-    95% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translate(0, 200vh) rotate(360deg);
-      opacity: 0;
-    }
-  }
-
-  /* Zigzag rain drop animation */
-  @keyframes rain-drop-fast-zigzag {
-    0% {
-      transform: translate(0, 0);
-      opacity: 0;
-    }
-    5% {
-      opacity: 0.4;
-    }
-    25% {
-      transform: translate(-5vw, 50vh);
-    }
-    50% {
-      transform: translate(5vw, 100vh);
-    }
-    75% {
-      transform: translate(-5vw, 150vh);
-    }
-    95% {
-      opacity: 0.4;
-    }
-    100% {
-      transform: translate(0, 200vh);
-      opacity: 0;
-    }
   }
 }
 
@@ -315,255 +157,52 @@
 
   .gradient-orb-1 {
     @apply top-[10%] right-[10%] w-[400px] h-[400px];
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(56, 189, 248, 0.15) 0%,
+      transparent 70%
+    );
   }
 
   .dark .gradient-orb-1 {
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(56, 189, 248, 0.08) 0%,
+      transparent 70%
+    );
   }
 
   .gradient-orb-2 {
     @apply bottom-[20%] left-[5%] w-[350px] h-[350px];
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.12) 0%,
+      transparent 70%
+    );
   }
 
   .dark .gradient-orb-2 {
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(139, 92, 246, 0.08) 0%,
+      transparent 70%
+    );
   }
 
   .gradient-orb-3 {
     @apply top-[50%] left-[40%] w-[300px] h-[300px];
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(6, 182, 212, 0.1) 0%,
+      transparent 70%
+    );
   }
 
   .dark .gradient-orb-3 {
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
-  }
-}
-
-/* ============================================================================
-   CODE RAIN BACKGROUND - Matrix-style text falling effect
-   ============================================================================ */
-
-@layer components {
-  .code-rain {
-    @apply fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-15;
-  }
-
-  .dark .code-rain {
-    @apply opacity-25;
-  }
-
-  .code-rain::before,
-  .code-rain::after {
-    content: "01001010 function() { } const => return async await <div> </> import export class interface type 10110101 { } [ ] && || !== === useState useEffect React TypeScript 11010010";
-    @apply absolute top-[-100%] left-0 w-full h-[200%] font-mono text-[10px] leading-[1.5] text-cyan-400 pointer-events-none;
-    word-wrap: break-word;
-    word-break: break-all;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    animation: code-fall 20s linear infinite;
-    white-space: pre-wrap;
-    letter-spacing: 8px;
-  }
-
-  .code-rain::after {
-    @apply left-[50%] text-violet-500;
-    animation-delay: -10s;
-  }
-
-  .code-rain-columns {
-    @apply fixed inset-0 pointer-events-none z-0 overflow-hidden;
-  }
-
-  .code-rain-columns span {
-    @apply absolute top-[-100vh] font-mono text-[18px] text-cyan-400 opacity-20 pointer-events-none;
-    animation: rain-drop linear infinite;
-    text-shadow: 0 0 10px currentColor;
-  }
-
-  .dark .code-rain-columns span {
-    @apply opacity-35;
-  }
-
-  /* Animation timing and positions for 75 rain columns */
-  .code-rain-columns span:nth-child(1) { @apply left-[3%]; animation-duration: 15s; animation-delay: 0s; }
-  .code-rain-columns span:nth-child(2) { @apply left-[10%]; animation-duration: 18s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(3) { @apply left-[17%]; animation-duration: 12s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(4) { @apply left-[24%]; animation-duration: 20s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(5) { @apply left-[31%]; animation-duration: 14s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(6) { @apply left-[38%]; animation-duration: 17s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(7) { @apply left-[45%]; animation-duration: 13s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(8) { @apply left-[52%]; animation-duration: 19s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(9) { @apply left-[59%]; animation-duration: 16s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(10) { @apply left-[66%]; animation-duration: 14s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(11) { @apply left-[73%]; animation-duration: 21s; animation-delay: -6s; }
-  .code-rain-columns span:nth-child(12) { @apply left-[80%]; animation-duration: 11s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(13) { @apply left-[87%]; animation-duration: 16s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(14) { @apply left-[94%]; animation-duration: 18s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(15) { @apply left-[97%]; animation-duration: 15s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(16) { @apply left-[5%]; animation-duration: 13s; animation-delay: -7s; }
-  .code-rain-columns span:nth-child(17) { @apply left-[12%]; animation-duration: 19s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(18) { @apply left-[19%]; animation-duration: 16s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(19) { @apply left-[26%]; animation-duration: 14s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(20) { @apply left-[33%]; animation-duration: 18s; animation-delay: -6s; }
-  .code-rain-columns span:nth-child(21) { @apply left-[40%]; animation-duration: 15s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(22) { @apply left-[47%]; animation-duration: 17s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(23) { @apply left-[54%]; animation-duration: 20s; animation-delay: -8s; }
-  .code-rain-columns span:nth-child(24) { @apply left-[61%]; animation-duration: 12s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(25) { @apply left-[68%]; animation-duration: 16s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(26) { @apply left-[75%]; animation-duration: 14s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(27) { @apply left-[82%]; animation-duration: 19s; animation-delay: -7s; }
-  .code-rain-columns span:nth-child(28) { @apply left-[89%]; animation-duration: 13s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(29) { @apply left-[96%]; animation-duration: 17s; animation-delay: -6s; }
-  .code-rain-columns span:nth-child(30) { @apply left-[99%]; animation-duration: 15s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(31) { @apply left-[2%]; animation-duration: 14s; animation-delay: -8s; }
-  .code-rain-columns span:nth-child(32) { @apply left-[7%]; animation-duration: 18s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(33) { @apply left-[14%]; animation-duration: 12s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(34) { @apply left-[21%]; animation-duration: 16s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(35) { @apply left-[28%]; animation-duration: 13s; animation-delay: -7s; }
-  .code-rain-columns span:nth-child(36) { @apply left-[35%]; animation-duration: 19s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(37) { @apply left-[42%]; animation-duration: 11s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(38) { @apply left-[49%]; animation-duration: 17s; animation-delay: -6s; }
-  .code-rain-columns span:nth-child(39) { @apply left-[56%]; animation-duration: 15s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(40) { @apply left-[63%]; animation-duration: 14s; animation-delay: -8s; }
-  .code-rain-columns span:nth-child(41) { @apply left-[70%]; animation-duration: 12s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(42) { @apply left-[77%]; animation-duration: 18s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(43) { @apply left-[84%]; animation-duration: 16s; animation-delay: -7s; }
-  .code-rain-columns span:nth-child(44) { @apply left-[91%]; animation-duration: 13s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(45) { @apply left-[98%]; animation-duration: 19s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(46) { @apply left-[4%]; animation-duration: 11s; animation-delay: -6s; }
-  .code-rain-columns span:nth-child(47) { @apply left-[11%]; animation-duration: 17s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(48) { @apply left-[18%]; animation-duration: 15s; animation-delay: -8s; }
-  .code-rain-columns span:nth-child(49) { @apply left-[25%]; animation-duration: 14s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(50) { @apply left-[32%]; animation-duration: 12s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(51) { @apply left-[39%]; animation-duration: 18s; animation-delay: -7s; }
-  .code-rain-columns span:nth-child(52) { @apply left-[46%]; animation-duration: 16s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(53) { @apply left-[53%]; animation-duration: 13s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(54) { @apply left-[60%]; animation-duration: 19s; animation-delay: -6s; }
-  .code-rain-columns span:nth-child(55) { @apply left-[67%]; animation-duration: 11s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(56) { @apply left-[74%]; animation-duration: 17s; animation-delay: -8s; }
-  .code-rain-columns span:nth-child(57) { @apply left-[81%]; animation-duration: 15s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(58) { @apply left-[88%]; animation-duration: 14s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(59) { @apply left-[95%]; animation-duration: 12s; animation-delay: -7s; }
-  .code-rain-columns span:nth-child(60) { @apply left-[1%]; animation-duration: 18s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(61) { @apply left-[8%]; animation-duration: 16s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(62) { @apply left-[15%]; animation-duration: 13s; animation-delay: -6s; }
-  .code-rain-columns span:nth-child(63) { @apply left-[22%]; animation-duration: 19s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(64) { @apply left-[29%]; animation-duration: 11s; animation-delay: -8s; }
-  .code-rain-columns span:nth-child(65) { @apply left-[36%]; animation-duration: 17s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(66) { @apply left-[43%]; animation-duration: 15s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(67) { @apply left-[50%]; animation-duration: 14s; animation-delay: -7s; }
-  .code-rain-columns span:nth-child(68) { @apply left-[57%]; animation-duration: 12s; animation-delay: -4s; }
-  .code-rain-columns span:nth-child(69) { @apply left-[64%]; animation-duration: 18s; animation-delay: -1s; }
-  .code-rain-columns span:nth-child(70) { @apply left-[71%]; animation-duration: 16s; animation-delay: -6s; }
-  .code-rain-columns span:nth-child(71) { @apply left-[78%]; animation-duration: 13s; animation-delay: -2s; }
-  .code-rain-columns span:nth-child(72) { @apply left-[85%]; animation-duration: 19s; animation-delay: -8s; }
-  .code-rain-columns span:nth-child(73) { @apply left-[92%]; animation-duration: 11s; animation-delay: -3s; }
-  .code-rain-columns span:nth-child(74) { @apply left-[97%]; animation-duration: 17s; animation-delay: -5s; }
-  .code-rain-columns span:nth-child(75) { @apply left-[6%]; animation-duration: 15s; animation-delay: -7s; }
-
-  .code-rain-columns span:nth-child(odd) {
-    @apply text-violet-500;
-  }
-
-  .dark .code-rain-columns span:nth-child(odd) {
-    @apply opacity-30;
-  }
-
-  .dark .code-rain-columns span:nth-child(even) {
-    @apply opacity-40;
-  }
-}
-
-/* ============================================================================
-   LOADING SCREEN CODE RAIN - Faster variant for loading state
-   ============================================================================ */
-
-@layer components {
-  .code-rain-fast::before,
-  .code-rain-fast::after {
-    animation-duration: 10s !important;
-    @apply opacity-35;
-  }
-
-  .dark .code-rain-fast {
-    @apply opacity-40;
-  }
-
-  .code-rain-fast-columns span {
-    animation-name: rain-drop-fast;
-    animation-duration: 6s !important;
-    @apply opacity-40 text-[20px];
-  }
-
-  .dark .code-rain-fast-columns span {
-    @apply opacity-55;
-  }
-
-  /* Different orientations and paths for variety */
-  .code-rain-fast-columns span:nth-child(3n) {
-    animation-name: rain-drop-fast-diagonal-left;
-  }
-
-  .code-rain-fast-columns span:nth-child(3n+1) {
-    animation-name: rain-drop-fast-diagonal-right;
-  }
-
-  .code-rain-fast-columns span:nth-child(5n) {
-    animation-name: rain-drop-fast-curve-left;
-  }
-
-  .code-rain-fast-columns span:nth-child(7n) {
-    animation-name: rain-drop-fast-curve-right;
-  }
-
-  .code-rain-fast-columns span:nth-child(11n) {
-    animation-name: rain-drop-fast-zigzag;
-  }
-
-  .code-rain-fast-columns span:nth-child(13n) {
-    @apply rotate-90;
-  }
-
-  .code-rain-fast-columns span:nth-child(17n) {
-    @apply -rotate-90;
-  }
-
-  .code-rain-fast-columns span:nth-child(19n) {
-    @apply rotate-45;
-  }
-
-  .code-rain-fast-columns span:nth-child(23n) {
-    @apply -rotate-45;
-  }
-
-  .code-rain-fast-columns span:nth-child(29n) {
-    transform: rotate(135deg);
-  }
-
-  .code-rain-fast-columns span:nth-child(31n) {
-    transform: rotate(-135deg);
-  }
-
-  .code-rain-fast-columns span:nth-child(37n) {
-    transform: scaleX(-1) rotate(30deg);
-  }
-
-  .code-rain-fast-columns span:nth-child(41n) {
-    transform: scaleY(-1) rotate(-30deg);
-  }
-}
-
-/* ============================================================================
-   CURSOR STYLING - Hide default cursor on desktop, show on touch
-   ============================================================================ */
-
-@layer base {
-  @media (hover: hover) and (pointer: fine) {
-    .cursor-none-scope,
-    .cursor-none-scope * {
-      cursor: none !important;
-    }
+    background: radial-gradient(
+      circle,
+      rgba(6, 182, 212, 0.06) 0%,
+      transparent 70%
+    );
   }
 }
