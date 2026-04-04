@@ -4,24 +4,24 @@ import { WorkExperience, Milestone } from '@/models';
 // Static data - in a real app, this could come from an API
 const EXPERIENCES_DATA: WorkExperience[] = [
   {
-    company: 'My School',
-    role: 'Tech Lead | Frontend Developer III',
+    company: 'MySchool',
+    role: 'Frontend Tech Lead',
     startDate: dayjs('2026-02-02').toDate(),
     endDate: null,
     employmentType: 'fulltime',
     workArrangement: 'hybrid',
     description:
-      'Leading frontend development using Next.js and modern React patterns, defining project architecture and scalable code practices. Responsible for sprint planning, task breakdown, and delegation to ensure consistent delivery. Work closely with the Project Manager to align technical execution with timelines and priorities, collaborate with the Design Team to translate UI/UX into production-ready interfaces, coordinate with DevOps for deployments, environments, and CI/CD workflows, and partner with Backend Engineers to design API contracts and ensure reliable integrations.',
+      'Leading a team of 13 frontend engineers on a Next.js 16 / React 19 SaaS platform for school trip management across three portals (parent, teacher, admin). Architected a URL-driven multi-step form flow eliminating SSR hydration mismatches, designed an identity-verified access gateway, and built a CDN-backed asset registry on Azure Blob Storage. Established unit testing infrastructure from scratch, enforced compiler-level log suppression for zero-console production builds, and resolved multiple SSR hydration mismatches using useSyncExternalStore with deterministic server snapshots.',
   },
   {
-    company: 'SNSoft Technologies Inc.',
+    company: 'SNSoft Technology Inc.',
     role: 'Frontend Developer',
     startDate: dayjs('2025-02-01').toDate(), // February 2025
-    endDate: dayjs('2026-02-27').toDate(), // February 2026
+    endDate: dayjs('2026-02-01').toDate(), // February 2026
     employmentType: 'fulltime',
     workArrangement: 'onsite',
     description:
-      'I specialize in React Native development, building cross-platform mobile apps for iOS and Android with multi-device compatibility. I develop React web and H5 applications using TypeScript and Tailwind CSS, implementing Redux for scalable state management. I integrate frontend systems with REST, GraphQL, gRPC, and WebSocket APIs, and implement WebView postMessage listeners for native-web communication. I led a migration from dynamic React to static pages, improving SEO and load speed. I apply MVVM architecture and leverage AI tools like ChatGPT and Claude for refactoring and debugging.',
+      'Built high-performance web and mobile apps using React, React Native, TypeScript, and Tailwind CSS. Developed cross-platform iOS and Android apps with broad device and OS compatibility. Integrated frontend with backend services via REST, GraphQL, gRPC, and WebSockets for real-time data. Led migration from a dynamic React app to static architecture improving load speed, SEO, and analytics accuracy. Applied MVVM architecture and AI tooling to accelerate development workflows.',
   },
   {
     company: 'Performativ UK',
@@ -31,27 +31,27 @@ const EXPERIENCES_DATA: WorkExperience[] = [
     employmentType: 'fulltime',
     workArrangement: 'remote',
     description:
-      'I led frontend development with React, TypeScript, Storybook, and Docker, improving performance and securing App Store approval. I mentored junior developers, conducted code reviews, and contributed to hiring. Additionally, I implemented mobile-first updates and enhanced product stability with rigorous testing. I collaborated with cross-functional teams to ensure effective communication, smooth workflow, and timely delivery of the app. This involved working closely with product managers and designers to refine user experiences, while coordinating with backend teams to ensure seamless integration and performance.',
+      'Built and maintained React applications with a focus on performance and mobile-first design. Implemented PWA features contributing to successful App Store approval. Developed analytics dashboards and reporting interfaces for SaaS business clients. Applied Redux, TanStack Query, and TypeScript for complex state management. Mentored junior developers, delegated tasks, and conducted code reviews. Delivered consistent releases via Docker and CI/CD pipelines.',
   },
   {
-    company: 'Extendops BPO',
-    role: 'Fullstack Developer',
+    company: 'XtendOps BPO',
+    role: 'Frontend Developer',
     startDate: dayjs('2020-10-01').toDate(), // October 2020
     endDate: dayjs('2022-01-01').toDate(), // January 2022
     employmentType: 'fulltime',
     workArrangement: 'hybrid',
     description:
-      'I collaborated with US and Mexican teams across different time zones to ensure smooth communication and alignment. I refactored legacy code, optimized ReactFinalForm, and built a UI library with Svelte, Tailwind, and Storybook. I also developed RESTful APIs using AdonisJS and NestJS, improved performance with Redux, and streamlined backend functionality. I worked with backend developers to improve system architecture and enhance frontend-backend integration. Additionally, I regularly interacted with project managers to prioritize tasks and meet deadlines.',
+      'Developed and maintained React and Next.js applications for internal and client-facing platforms. Collaborated with US and Mexican teams across multiple time zones. Refactored legacy frontend code — optimized forms and resolved memory leaks. Built a reusable UI component library using Svelte, Tailwind CSS, and Storybook. Integrated RESTful APIs using AdonisJS and NestJS; eliminated redundant data fetching via Redux.',
   },
   {
-    company: 'Stacktrek Enterprise Inc.',
-    role: 'Junior Software Developer',
+    company: 'StackTrek Enterprise',
+    role: 'Junior Frontend Developer',
     startDate: dayjs('2019-03-01').toDate(), // March 2019
     endDate: dayjs('2020-10-01').toDate(), // October 2020
     employmentType: 'fulltime',
     workArrangement: 'onsite',
     description:
-      "I worked with React and React Native, enhancing code maintainability for both web and mobile platforms. I built a messaging feature with backend developers and implemented React i18n to expand the app's reach to non-English-speaking users. I collaborated with both local and international teams, ensuring smooth project progress across different time zones. This involved coordinating with backend engineers to develop new features, and working with international teams to implement localization strategies and improve the app's global accessibility.",
+      'Built React-based web applications, supporting core features and UI components. Implemented responsive layouts and integrated RESTful APIs with backend teams. Participated in agile workflows — sprint planning, task estimation, standups, and code reviews.',
   },
 ];
 
@@ -64,6 +64,15 @@ const EDUCATION_MILESTONES: Milestone[] = [
     endDate: dayjs('2019-02-01').toDate(), // February 2019
     description:
       'Participated and passed the StackLeague coding tournament, a competitive programming competition that opened doors to my first professional opportunity.',
+  },
+  {
+    type: 'education',
+    title: 'BS Information Technology',
+    subtitle: 'Central Philippine University',
+    startDate: dayjs('2018-04-01').toDate(), // 2018
+    endDate: dayjs('2018-04-01').toDate(), // 2018
+    description:
+      'Thesis: Barangay Profiling Management System — Led development of a community-based profiling system in collaboration with the City Social Welfare and Development office. Designed statistical reporting and forecasting features to support government planning and decision-making.',
   },
 ];
 

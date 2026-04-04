@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="flex-1 flex items-center justify-center px-8">
         <div className="text-center max-w-3xl">
           <h1 className="section-title md:text-7xl mt-2">{`< knnthdmyo />`}</h1>
-          <p className="section-subtitle">Frontend Engineer</p>
+          <p className="section-subtitle">Senior Frontend Engineer</p>
 
           {/* Highlights - Serious */}
           <div className="flex justify-center gap-6 md:gap-10 mt-10 flex-wrap">
