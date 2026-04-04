@@ -1,6 +1,4 @@
-# Route-specific rewrites
-/portfolio/*   /portfolio/index.html   200
-
-# Redirect root to portfolio
-/              /portfolio              302
+# Redirect old portfolio route to root
+/portfolio     /     301
+/portfolio/*   /     301
 

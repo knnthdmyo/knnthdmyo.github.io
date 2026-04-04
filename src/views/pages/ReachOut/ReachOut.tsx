@@ -83,7 +83,7 @@ const ReachOut = () => {
     <div className="box-border flex flex-col relative">
       {/* Copied to Clipboard Toast */}
       <div
-        className={`fixed top-24 right-8 z-[9999] flex items-center gap-3 px-6 py-3 rounded-full bg-sky-500/90 dark:bg-sky-500/80 backdrop-blur-xl text-white shadow-lg shadow-sky-500/30 border border-sky-400/20 transition-all duration-300 ${
+        className={`fixed top-24 right-8 z-[9999] flex items-center gap-3 px-6 py-3 rounded-full bg-surface-900 dark:bg-surface-100 text-white dark:text-surface-900 shadow-lg transition-all duration-300 ${
           showCopiedToast
             ? 'opacity-100 translate-x-0'
             : 'opacity-0 translate-x-8 pointer-events-none'
@@ -96,16 +96,12 @@ const ReachOut = () => {
       <div className="md:py-20 py-12 flex flex-col gap-10 md:gap-14">
         {/* Header */}
         <div className="page-header">
-          <span className="page-subtitle">Get In Touch</span>
           <h1 className="page-title">Let&apos;s Connect</h1>
-          <div className="page-title-divider">
-            <div className="page-divider-line" />
-            <p className="page-divider-text">Open for opportunities</p>
-          </div>
+          <p className="page-meta">Open for opportunities</p>
         </div>
 
         {/* Contact Info */}
-        <div className="px-8 md:px-20 flex flex-col gap-4">
+        <div className="px-8 md:px-16 flex flex-col gap-4">
           {contactInfo.map((contact, index) => (
             <button
               key={index}
@@ -120,7 +116,7 @@ const ReachOut = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="px-8 md:px-20 flex flex-wrap gap-4">
+        <div className="px-8 md:px-16 flex flex-wrap gap-4">
           <a
             href={`mailto:${email}?subject=${createEmailTemplate().subject}&body=${createEmailTemplate().body}`}
             className="btn-primary opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards]"
@@ -141,8 +137,8 @@ const ReachOut = () => {
         </div>
 
         {/* Social Networks */}
-        <div className="px-8 md:px-20">
-          <p className="text-[10px] uppercase tracking-widest text-black/60 dark:text-gray-400 mb-4">
+        <div className="px-8 md:px-16">
+          <p className="text-[10px] uppercase tracking-widest text-surface-600 dark:text-surface-400 mb-4">
             Follow Me
           </p>
           <div className="flex gap-4">
@@ -162,24 +158,10 @@ const ReachOut = () => {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-gray-200/20 dark:border-gray-700/20 py-8 px-8 md:px-20">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <p className="text-xs text-black/60 dark:text-gray-400">
-            © {dayjs().year()} knnthdmyo • Built with React, TypeScript & too
-            much coffee
-          </p>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 text-[9px] text-black/40 dark:text-gray-400/50">
-            <span>500k+ lines of code</span>
-            <span>•</span>
-            <span>∞ bugs squashed</span>
-            <span>•</span>
-            <span>9999+ cups of coffee</span>
-            <span>•</span>
-            <span>42% will to live</span>
-            <span>•</span>
-            <span>∞ stackoverflow visits</span>
-          </div>
-        </div>
+      <div className="border-t border-surface-200 dark:border-surface-800 py-8 px-8 md:px-16">
+        <p className="text-xs text-surface-400 dark:text-surface-500">
+          © {dayjs().year()} knnthdmyo
+        </p>
       </div>
     </div>
   );

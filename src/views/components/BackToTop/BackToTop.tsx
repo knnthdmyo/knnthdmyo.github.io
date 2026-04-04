@@ -29,18 +29,18 @@ const BackToTop = memo(() => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-[9000] w-12 h-12 rounded-full 
-        bg-white/40 dark:bg-slate-800/40 backdrop-blur-md
-        border border-white/30 dark:border-slate-600/30
-        text-sky-500 dark:text-sky-400 hover:text-sky-600 dark:hover:text-sky-300
-        shadow-lg shadow-black/5 dark:shadow-black/20
-        hover:bg-white/80 dark:hover:bg-slate-800/80
-        hover:shadow-xl hover:shadow-sky-500/20
+      className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-[9000] w-10 h-10 rounded-full 
+        bg-white dark:bg-surface-800 
+        border border-surface-200 dark:border-surface-700
+        text-surface-500 dark:text-surface-400 hover:text-surface-900 dark:hover:text-surface-200
+        shadow-sm
+        hover:bg-surface-50 dark:hover:bg-surface-700
         flex items-center justify-center
         transition-all duration-300 ease-out
-        ${isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-4 pointer-events-none'
+        ${
+          isVisible
+            ? 'opacity-100 translate-y-0'
+            : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       aria-label="Back to top"
     >
@@ -52,4 +52,3 @@ const BackToTop = memo(() => {
 BackToTop.displayName = 'BackToTop';
 
 export default BackToTop;
-

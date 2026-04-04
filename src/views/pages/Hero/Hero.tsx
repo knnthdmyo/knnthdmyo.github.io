@@ -1,63 +1,50 @@
 'use client';
 
 import { useHeroStats } from '@/viewmodels';
-import NavBar from '@/views/components/Navbar';
-import WorldMap from '@/views/components/WorldMap';
 
 const Hero = () => {
-  const { stats, formatHours } = useHeroStats();
+  const { stats } = useHeroStats();
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <NavBar />
-      <div className="flex-1 flex items-center justify-center px-8">
-        <div className="text-center max-w-3xl">
-          <h1 className="section-title md:text-7xl mt-2">{`< knnthdmyo />`}</h1>
-          <p className="section-subtitle">Senior Frontend Engineer</p>
+    <div className="flex flex-col h-screen">
+      <div className="flex-1 flex flex-col justify-center px-8 md:px-16">
+        <div className="max-w-4xl w-full">
+          {/* Title */}
+          <h1 className="text-5xl md:text-8xl font-bold tracking-tight text-surface-900 dark:text-surface-100">
+            knnthdmyo
+          </h1>
 
-          {/* Highlights - Serious */}
-          <div className="flex justify-center gap-6 md:gap-10 mt-10 flex-wrap">
-            <div className="stat-box">
-              <p className="stat-number tabular-nums">
+          {/* Role */}
+          <p className="mt-4 text-base md:text-lg text-surface-600 dark:text-surface-400">
+            Frontend Engineer. Tech Lead.
+          </p>
+
+          {/* Stats — raw numbers, no cards */}
+          <div className="flex flex-wrap gap-x-10 gap-y-4 mt-12">
+            <div>
+              <p className="text-2xl md:text-3xl font-bold text-surface-900 dark:text-surface-100 tabular-nums">
                 {stats.years.toFixed(1)}
               </p>
-              <p className="stat-label">
+              <p className="text-[10px] uppercase tracking-widest text-surface-600 dark:text-surface-400 mt-1">
                 Years
-                <br />
-                Experience
               </p>
             </div>
-            <div className="stat-box">
-              <p className="stat-number">{stats.companies}</p>
-              <p className="stat-label">
+            <div>
+              <p className="text-2xl md:text-3xl font-bold text-surface-900 dark:text-surface-100">
+                {stats.companies}
+              </p>
+              <p className="text-[10px] uppercase tracking-widest text-surface-600 dark:text-surface-400 mt-1">
                 Companies
-                <br />
-                Served
               </p>
             </div>
-            <div className="stat-box">
-              <p className="stat-number">{stats.projects}+</p>
-              <p className="stat-label">
+            <div>
+              <p className="text-2xl md:text-3xl font-bold text-surface-900 dark:text-surface-100">
+                {stats.projects}
+              </p>
+              <p className="text-[10px] uppercase tracking-widest text-surface-600 dark:text-surface-400 mt-1">
                 Projects
-                <br />
-                Deployed
               </p>
             </div>
-            <div className="stat-box">
-              <p className="stat-number tabular-nums">
-                {formatHours(stats.hours)}
-              </p>
-              <p className="stat-label">
-                Hours
-                <br />
-                Coded
-              </p>
-            </div>
-          </div>
-
-          {/* World Map */}
-          <div className="mt-16">
-            <WorldMap title="Teams I've Collaborated With" />
           </div>
         </div>
       </div>

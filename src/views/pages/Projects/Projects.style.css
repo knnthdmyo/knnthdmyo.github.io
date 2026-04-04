@@ -4,23 +4,23 @@
   }
 
   .project-number {
-    @apply text-5xl md:text-6xl font-extralight text-black/20 dark:text-gray-800 transition-colors duration-300;
+    @apply text-5xl md:text-6xl font-extralight text-surface-200 dark:text-surface-800 transition-colors duration-300;
   }
 
   .project-card-group:hover .project-number {
-    @apply text-sky-500/30;
+    @apply text-surface-400 dark:text-surface-600;
   }
 
   .project-title {
-    @apply text-xl md:text-2xl font-light tracking-wide text-black dark:text-gray-200 transition-colors duration-300;
+    @apply text-lg md:text-xl font-semibold tracking-wide text-surface-900 dark:text-surface-200 transition-colors duration-300;
   }
 
   .project-card-group:hover .project-title {
-    @apply text-sky-500;
+    @apply text-surface-700 dark:text-white;
   }
 
   .project-description {
-    @apply text-sm text-black/70 dark:text-gray-400 mt-3 leading-relaxed max-w-2xl;
+    @apply text-sm text-surface-600 dark:text-surface-400 mt-2 leading-relaxed max-w-2xl;
   }
 
   .project-tags-container {

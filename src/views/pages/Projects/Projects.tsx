@@ -29,11 +29,11 @@ const Projects = () => {
   return (
     <div className="box-border md:py-20 py-12 flex flex-col gap-8 md:gap-12">
       {/* Header */}
-      <div className="group/header px-8 md:px-20">
+      <div className="group/header px-8 md:px-16">
         <div className="flex items-end gap-4">
           <div>
-            <span className="page-subtitle">Portfolio</span>
             <h1 className="page-title">Projects</h1>
+            <p className="page-meta">{projects.length} featured projects</p>
           </div>
 
           {/* See All Button - Mobile always visible, Desktop on hover */}
@@ -45,16 +45,10 @@ const Projects = () => {
             />
           </button>
         </div>
-        <div className="flex items-center gap-3 mt-3">
-          <div className="w-12 h-0.5 bg-gradient-to-r from-violet-400 to-sky-400" />
-          <p className="text-xs text-black/60 dark:text-gray-400">
-            {projects.length} featured projects
-          </p>
-        </div>
       </div>
 
       {/* Projects List */}
-      <div className="flex flex-col gap-8 px-8 md:px-20">
+      <div className="flex flex-col gap-8 px-8 md:px-16">
         {projects.map((project, index) => (
           <div
             key={index}
@@ -63,16 +57,9 @@ const Projects = () => {
           >
             {/* Project Row */}
             <div
-              className={`group flex flex-col md:flex-row gap-6 md:gap-10 ${showAll ? '' : 'cursor-pointer'}`}
+              className={`group flex flex-col gap-4 ${showAll ? '' : 'cursor-pointer'}`}
               onClick={() => toggleProject(index)}
             >
-              {/* Index number */}
-              <div className="flex-shrink-0">
-                <span className="project-number">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-              </div>
-
               {/* Content */}
               <div className="flex-1">
                 <div className="flex items-center gap-3">
@@ -81,7 +68,7 @@ const Projects = () => {
                   {!showAll && (
                     <FontAwesomeIcon
                       icon={faChevronDown}
-                      className={`text-xs text-black/50 dark:text-gray-400 transition-all duration-300 opacity-0 group-hover:opacity-100 ${
+                      className={`text-xs text-surface-500 dark:text-surface-400 transition-all duration-300 opacity-0 group-hover:opacity-100 ${
                         expandedProject === index ? 'rotate-180' : ''
                       }`}
                     />
@@ -94,7 +81,7 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 mt-2 text-sm font-medium text-sky-500 hover:text-sky-400 transition-colors duration-200"
+                    className="inline-flex items-center gap-2 mt-2 text-sm font-medium text-surface-600 dark:text-surface-400 hover:text-surface-900 dark:hover:text-surface-200 transition-colors duration-200"
                   >
                     <span>Visit Site</span>
                     <FontAwesomeIcon
@@ -115,7 +102,7 @@ const Projects = () => {
               }`}
               style={{ transitionDelay: showAll ? `${index * 100}ms` : '0ms' }}
             >
-              <div className="md:ml-[88px] rounded-xl overflow-hidden">
+              <div className="rounded-xl overflow-hidden">
                 {project.image ? (
                   <div className="relative w-full max-w-2xl rounded-xl overflow-hidden">
                     <Image
@@ -127,7 +114,7 @@ const Projects = () => {
                     />
                   </div>
                 ) : (
-                  <div className="w-full max-w-2xl aspect-video flex flex-col items-center justify-center gap-3 text-black/60 dark:text-gray-500 bg-gray-100 dark:bg-gray-800/30 rounded-xl">
+                  <div className="w-full max-w-2xl aspect-video flex flex-col items-center justify-center gap-3 text-surface-500 dark:text-surface-500 bg-surface-100 dark:bg-surface-800/30 rounded-xl">
                     <FontAwesomeIcon icon={faImage} className="text-4xl" />
                     <span className="text-xs uppercase tracking-wider">
                       No preview available
@@ -138,7 +125,7 @@ const Projects = () => {
             </div>
 
             {/* Subtle divider */}
-            <div className="w-full h-px bg-gradient-to-r from-gray-200 dark:from-gray-800 via-gray-200 dark:via-gray-700 to-transparent mt-6" />
+            <div className="w-full h-px bg-surface-200 dark:bg-surface-800 mt-6" />
           </div>
         ))}
       </div>

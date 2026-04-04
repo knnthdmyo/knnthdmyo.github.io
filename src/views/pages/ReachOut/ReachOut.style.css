@@ -1,33 +1,29 @@
 @layer components {
   .contact-item {
-    @apply flex items-center gap-4 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards] text-left hover:translate-x-2 transition-all duration-300 cursor-pointer;
+    @apply flex items-center gap-4 opacity-0 translate-y-4 animate-[slideUp_0.5s_ease-out_forwards] text-left hover:translate-x-1 transition-all duration-300 cursor-pointer;
   }
 
   .contact-icon {
-    @apply text-sky-500 w-5 transition-transform duration-300;
-  }
-
-  .contact-item:hover .contact-icon {
-    @apply scale-110;
+    @apply text-surface-500 dark:text-surface-500 w-5;
   }
 
   .contact-value {
-    @apply text-black dark:text-gray-300 transition-colors;
+    @apply text-surface-900 dark:text-surface-300 transition-colors;
   }
 
   .contact-item:hover .contact-value {
-    @apply text-sky-500 dark:text-sky-400;
+    @apply text-surface-600 dark:text-white;
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full bg-sky-500 hover:bg-sky-400 text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30;
+    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full bg-surface-900 dark:bg-surface-100 hover:bg-surface-800 dark:hover:bg-white text-white dark:text-surface-900 font-medium transition-all duration-300;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-sky-500/30;
+    @apply inline-flex items-center gap-3 px-6 py-3 rounded-full border border-surface-300 dark:border-surface-700 text-surface-900 dark:text-surface-200 hover:bg-surface-100 dark:hover:bg-surface-800 font-medium transition-all duration-300;
   }
 
   .btn-icon {
-    @apply text-2xl text-black/60 dark:text-gray-400 hover:text-sky-500 hover:scale-110 transition-all duration-300;
+    @apply text-xl text-surface-500 dark:text-surface-500 hover:text-surface-900 dark:hover:text-surface-200 transition-colors duration-300;
   }
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import { useTechnologies } from '@/viewmodels';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Technologies = () => {
   const { categorizedTechnologies, totalCount } = useTechnologies();
@@ -10,16 +9,12 @@ const Technologies = () => {
     <div className="box-border md:py-20 py-12 flex flex-col gap-10 md:gap-16">
       {/* Header */}
       <div className="page-header">
-        <span className="page-subtitle">Tech</span>
         <h1 className="page-title">Stack</h1>
-        <div className="page-title-divider">
-          <div className="page-divider-line" />
-          <p className="page-divider-text">{totalCount}+ technologies</p>
-        </div>
+        <p className="page-meta">{totalCount}+ technologies</p>
       </div>
 
       {/* Categories */}
-      <div className="flex flex-col gap-10 px-8 md:px-20">
+      <div className="flex flex-col gap-10 px-8 md:px-16">
         {categorizedTechnologies.map((category, catIndex) => (
           <div
             key={category.title}
@@ -28,7 +23,7 @@ const Technologies = () => {
           >
             {/* Category Header */}
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-xs uppercase tracking-widest text-black/60 dark:text-gray-400 group-hover:text-sky-500 transition-colors duration-300">
+              <span className="text-xs uppercase tracking-widest text-surface-600 dark:text-surface-400 group-hover:text-surface-900 dark:group-hover:text-surface-200 transition-colors duration-300">
                 {category.title}
               </span>
               <div className="gradient-line-full" />
@@ -44,11 +39,6 @@ const Technologies = () => {
                   rel="noreferrer"
                   className="tech-link"
                 >
-                  <FontAwesomeIcon
-                    icon={tech.icon}
-                    className="tech-icon"
-                    style={{ color: tech.color }}
-                  />
                   <span className="tech-name">{tech.name}</span>
                 </a>
               ))}

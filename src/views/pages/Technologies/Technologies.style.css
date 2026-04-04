@@ -1,25 +1,17 @@
 @layer components {
   .tech-link {
-    @apply inline-flex items-center gap-2 text-sm text-black dark:text-gray-400 transition-all duration-300;
+    @apply inline-flex items-center gap-2 text-sm text-surface-700 dark:text-surface-400 transition-all duration-300;
   }
 
   .tech-link:hover {
-    @apply text-sky-500;
+    @apply text-surface-900 dark:text-surface-100;
   }
 
   .tech-icon {
-    @apply text-xs transition-transform duration-300;
-  }
-
-  .tech-link:hover .tech-icon {
-    @apply scale-110;
+    @apply text-xs;
   }
 
   .tech-name {
-    @apply transition-transform duration-300;
-  }
-
-  .tech-link:hover .tech-name {
-    @apply translate-x-0.5;
+    @apply transition-colors duration-300;
   }
 }

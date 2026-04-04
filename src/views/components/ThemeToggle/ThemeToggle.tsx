@@ -1,8 +1,6 @@
 'use client';
 
 import { useTheme } from '@/providers/ThemeProvider';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 
 export const ThemeToggle = () => {
@@ -14,23 +12,17 @@ export const ThemeToggle = () => {
   }, []);
 
   if (!isMounted) {
-    return (
-      <div className="relative inline-flex items-center justify-center w-10 h-10 rounded-full" />
-    );
+    return <div className="w-10 h-10" />;
   }
 
   return (
     <button
       onClick={toggleTheme}
-      className="relative inline-flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 hover:bg-gray-200 dark:hover:bg-slate-700 text-sky-600 dark:text-sky-400"
+      className="text-[10px] uppercase tracking-widest font-medium text-surface-500 dark:text-surface-500 hover:text-surface-900 dark:hover:text-surface-200 transition-colors duration-300"
       aria-label="Toggle theme"
       title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
-      {theme === 'light' ? (
-        <FontAwesomeIcon icon={faMoon} className="w-5 h-5" />
-      ) : (
-        <FontAwesomeIcon icon={faSun} className="w-5 h-5" />
-      )}
+      {theme === 'light' ? 'Dark' : 'Light'}
     </button>
   );
 };

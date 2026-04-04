@@ -1,14 +1,36 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import {
+  Hero,
+  Experiences,
+  Projects,
+  Technologies,
+  ReachOut,
+} from '@/views/pages';
+import { BackToTop, Navbar } from '@/views/components';
 
 export default function Home() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace('/portfolio');
-  }, [router]);
-
-  return null;
+  return (
+    <div className="dark-grain bg-white dark:bg-surface-950 text-surface-900 dark:text-surface-100 transition-colors duration-300 relative min-h-screen">
+      <Navbar />
+      <BackToTop />
+      <div className="max-w-7xl mx-auto">
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="experiences">
+          <Experiences />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="technologies">
+          <Technologies />
+        </section>
+        <section id="reach-out">
+          <ReachOut />
+        </section>
+      </div>
+    </div>
+  );
 }

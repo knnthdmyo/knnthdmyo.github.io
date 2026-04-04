@@ -1,34 +1,50 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/views/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/contexts/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/views/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/contexts/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        beige: {
-          100: "#f8f7f3",
-          200: "#eae6d9",
-          300: "#d8d2b6",
-          400: "#c7be93",
-          500: "#b4b0ab",
-          600: "#9e9689",
-          700: "#8b7f6c",
-          800: "#786a57",
-          900: "#665b47",
+        accent: {
+          50: '#FAFAFA',
+          100: '#F5F5F5',
+          200: '#E5E5E5',
+          300: '#D4D4D4',
+          400: '#A3A3A3',
+          500: '#262626',
+          600: '#171717',
+          700: '#0A0A0A',
+          800: '#000000',
+          900: '#000000',
         },
+        surface: {
+          50: '#FAFAFA',
+          100: '#F5F5F5',
+          200: '#E5E5E5',
+          300: '#D4D4D4',
+          400: '#A3A3A3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+          950: '#020202',
+        },
+      },
+      fontFamily: {
+        display: ['"Inter"', 'system-ui', 'sans-serif'],
       },
     },
   },
   plugins: [],
-  darkMode: "class",
+  darkMode: 'class',
 };
 
 export default config;
-

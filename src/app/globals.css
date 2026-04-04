@@ -10,50 +10,73 @@
 @tailwind utilities;
 
 /* ============================================================================
-   BASE STYLES - Global element styling
+   BASE STYLES
    ============================================================================ */
 
 @layer base {
   html {
     @apply scroll-smooth;
   }
+
+  body {
+    @apply bg-white dark:bg-surface-950 text-surface-900 dark:text-surface-100 antialiased;
+    --carousel-bg: #ffffff;
+  }
+
+  .dark body,
+  :is(.dark) body {
+    --carousel-bg: #020202;
+  }
 }
 
 /* ============================================================================
-   ANIMATIONS - Core keyframes for animations used throughout the app
+   DARK MODE EFFECTS
+   ============================================================================ */
+
+.dark-grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+:is(.dark) .dark-grain::before {
+  opacity: 0.05;
+}
+
+.dark-grain::after {
+  content: '';
+  position: fixed;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 70%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    ellipse 60% 50% at center,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.015) 40%,
+    transparent 70%
+  );
+}
+
+:is(.dark) .dark-grain::after {
+  opacity: 1;
+}
+
+/* ============================================================================
+   ANIMATIONS
    ============================================================================ */
 
 @layer components {
-  /* Loading screen spinner animation */
-  @keyframes spin-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  .animate-spin-slow {
-    animation: spin-slow 3s linear infinite;
-  }
-
-  /* Bump effect for interactive elements */
-  @keyframes bump {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
-
-  .bump-effect {
-    animation: bump 0.2s ease-out;
-  }
-
-  /* Slide up animation for staggered reveals */
   @keyframes slideUp {
     0% {
       opacity: 0;
@@ -65,11 +88,10 @@
     }
   }
 
-  /* Fade in animation */
   @keyframes fadeIn {
     0% {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(0.97);
     }
     100% {
       opacity: 1;
@@ -77,45 +99,23 @@
     }
   }
 
-  /* Shake animation for cursor at max size */
-  @keyframes shake {
-    0%,
-    100% {
-      transform: translate(-15%, -15%) rotate(-90deg) translateX(0);
-    }
-    10%,
-    30%,
-    50%,
-    70%,
-    90% {
-      transform: translate(-15%, -15%) rotate(-90deg) translateX(-4px);
-    }
-    20%,
-    40%,
-    60%,
-    80% {
-      transform: translate(-15%, -15%) rotate(-90deg) translateX(4px);
-    }
-  }
-
-  /* Heartbeat pulse effect for current milestone */
   @keyframes heartbeat {
     0%,
     100% {
       transform: scale(1);
-      box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+      box-shadow: 0 0 0 0 rgba(38, 38, 38, 0);
     }
     25% {
       transform: scale(1.05);
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 0 4px rgba(38, 38, 38, 0.3);
     }
     50% {
       transform: scale(1);
-      box-shadow: 0 0 0 8px rgba(56, 189, 248, 0);
+      box-shadow: 0 0 0 8px rgba(38, 38, 38, 0);
     }
     75% {
       transform: scale(1.03);
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+      box-shadow: 0 0 0 4px rgba(38, 38, 38, 0.15);
     }
   }
 
@@ -125,84 +125,65 @@
 }
 
 /* ============================================================================
-   GLASS MORPHISM EFFECTS - Frosted glass backgrounds
+   CARD SYSTEM
    ============================================================================ */
 
 @layer components {
-  .glass {
-    @apply bg-white/70 backdrop-blur-[10px] border border-white/20;
+  .card {
+    @apply bg-white dark:bg-surface-900 border border-surface-200 dark:border-surface-800 rounded-2xl transition-all duration-300;
   }
 
-  .dark .glass {
-    @apply bg-slate-950/60 border-white/5;
+  .card-hover {
+    @apply hover:shadow-lg hover:shadow-surface-900/5 dark:hover:shadow-black/20 hover:-translate-y-0.5;
   }
 
-  .glass-subtle {
-    @apply bg-white/40 backdrop-blur-[8px];
-  }
-
-  .dark .glass-subtle {
-    @apply bg-slate-950/40;
+  .card-subtle {
+    @apply bg-surface-50 dark:bg-surface-900/50 border border-surface-100 dark:border-surface-800 rounded-xl;
   }
 }
 
 /* ============================================================================
-   GRADIENT ORBS - Decorative background elements
+   LOGO CAROUSEL
    ============================================================================ */
 
-@layer components {
-  .gradient-orb {
-    @apply fixed rounded-full blur-[80px] pointer-events-none -z-10;
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 
-  .gradient-orb-1 {
-    @apply top-[10%] right-[10%] w-[400px] h-[400px];
-    background: radial-gradient(
-      circle,
-      rgba(56, 189, 248, 0.15) 0%,
-      transparent 70%
-    );
-  }
+.logo-scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 90s linear infinite;
+  will-change: transform;
+}
 
-  .dark .gradient-orb-1 {
-    background: radial-gradient(
-      circle,
-      rgba(56, 189, 248, 0.08) 0%,
-      transparent 70%
-    );
-  }
+.logo-scroll-track:hover {
+  animation-play-state: paused;
+}
 
-  .gradient-orb-2 {
-    @apply bottom-[20%] left-[5%] w-[350px] h-[350px];
-    background: radial-gradient(
-      circle,
-      rgba(139, 92, 246, 0.12) 0%,
-      transparent 70%
-    );
-  }
+.logo-scroll-group {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 0 1.5rem;
+  flex-shrink: 0;
+}
 
-  .dark .gradient-orb-2 {
-    background: radial-gradient(
-      circle,
-      rgba(139, 92, 246, 0.08) 0%,
-      transparent 70%
-    );
+@media (min-width: 768px) {
+  .logo-scroll-group {
+    gap: 4rem;
+    padding: 0 2rem;
   }
+}
 
-  .gradient-orb-3 {
-    @apply top-[50%] left-[40%] w-[300px] h-[300px];
-    background: radial-gradient(
-      circle,
-      rgba(6, 182, 212, 0.1) 0%,
-      transparent 70%
-    );
-  }
-
-  .dark .gradient-orb-3 {
-    background: radial-gradient(
-      circle,
-      rgba(6, 182, 212, 0.06) 0%,
-      transparent 70%
-    );
-  }
+.logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
