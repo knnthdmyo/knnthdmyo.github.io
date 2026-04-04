@@ -11,6 +11,7 @@ export const useTechnologies = () => {
     { title: 'Databases', items: technologies.databases },
     { title: 'Tools', items: technologies.tools },
     { title: 'Libraries', items: technologies.libraries },
+    { title: 'AI Augmentation', items: technologies.aiTooling },
   ];
 
   return {

@@ -14,5 +14,5 @@ export interface TechnologyCategories {
   databases: Technology[];
   tools: Technology[];
   libraries: Technology[];
+  aiTooling: Technology[];
 }
-
