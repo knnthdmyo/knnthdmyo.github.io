@@ -10,23 +10,54 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   // Initialize theme from localStorage and system preference
   useEffect(() => {
     // Check localStorage first
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    
+
     if (savedTheme) {
       setTheme(savedTheme);
       applyTheme(savedTheme);
     } else {
       // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
       const initialTheme = prefersDark ? 'dark' : 'light';
       setTheme(initialTheme);
       applyTheme(initialTheme);
     }
+  }, []);
+
+  // Triple-tap to toggle theme (mobile)
+  useEffect(() => {
+    const taps: number[] = [];
+    const TAP_WINDOW = 500;
+
+    const handleTap = () => {
+      const now = Date.now();
+      taps.push(now);
+
+      // Keep only taps within the window
+      while (taps.length > 0 && now - taps[0] > TAP_WINDOW) {
+        taps.shift();
+      }
+
+      if (taps.length >= 3) {
+        taps.length = 0;
+        setTheme((prev) => {
+          const next = prev === 'light' ? 'dark' : 'light';
+          localStorage.setItem('theme', next);
+          applyTheme(next);
+          return next;
+        });
+      }
+    };
+
+    window.addEventListener('touchend', handleTap);
+    return () => window.removeEventListener('touchend', handleTap);
   }, []);
 
   const applyTheme = (newTheme: 'light' | 'dark') => {
@@ -56,7 +87,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  
+
   // Return a safe fallback during SSR/build
   if (context === undefined) {
     // If we're in a browser environment, throw error
