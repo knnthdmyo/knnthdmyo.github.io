@@ -5,7 +5,7 @@ import { ThemeToggle } from '../ThemeToggle';
 
 const NavBar = () => {
   const [isAtTop, setIsAtTop] = useState(true);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +18,7 @@ const NavBar = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ['experiences', 'projects', 'technologies', 'reach-out'];
+    const sectionIds = ['home', 'experiences', 'projects', 'tech', 'connect'];
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
@@ -42,10 +42,11 @@ const NavBar = () => {
   }, []);
 
   const navLinks = [
+    { href: '#home', label: 'Home' },
     { href: '#experiences', label: 'Journey' },
     { href: '#projects', label: 'Projects' },
-    { href: '#technologies', label: 'Tech' },
-    { href: '#reach-out', label: 'Connect' },
+    { href: '#tech', label: 'Tech' },
+    { href: '#connect', label: 'Connect' },
   ];
 
   return (

@@ -24,10 +24,10 @@ export default function Home() {
         <section id="projects">
           <Projects />
         </section>
-        <section id="technologies">
+        <section id="tech">
           <Technologies />
         </section>
-        <section id="reach-out">
+        <section id="connect">
           <ReachOut />
         </section>
       </div>
