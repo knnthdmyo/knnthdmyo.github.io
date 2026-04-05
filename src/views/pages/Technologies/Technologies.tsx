@@ -9,7 +9,7 @@ const Technologies = () => {
     <div className="box-border md:py-20 py-12 flex flex-col gap-10 md:gap-16">
       {/* Header */}
       <div className="page-header">
-        <h1 className="page-title">Stack</h1>
+        <h1 className="page-title">Tech</h1>
         <p className="page-meta">{totalCount}+ technologies</p>
       </div>
 
