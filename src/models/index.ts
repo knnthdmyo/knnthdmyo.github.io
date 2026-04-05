@@ -1,30 +1,17 @@
 // Experience Models
-export type { 
-  EmploymentType, 
-  WorkArrangement, 
+export type {
+  EmploymentType,
+  WorkArrangement,
   MilestoneType,
-  WorkExperience, 
-  Milestone 
+  WorkExperience,
+  Milestone,
 } from './experience.model';
 
 // Technology Models
-export type { 
-  Technology, 
-  TechnologyCategories 
-} from './technology.model';
+export type { Technology, TechnologyCategories } from './technology.model';
 
 // Project Models
 export type { Project } from './project.model';
 
 // Contact Models
-export type { 
-  ContactInfo, 
-  SocialNetwork 
-} from './contact.model';
-
-// Location Models
-export type { 
-  Location, 
-  MapConfig 
-} from './location.model';
-
+export type { ContactInfo, SocialNetwork } from './contact.model';
