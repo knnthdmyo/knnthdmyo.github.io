@@ -14,7 +14,7 @@ export default function Home() {
     <div className="dark-grain bg-white dark:bg-surface-950 text-surface-900 dark:text-surface-100 transition-colors duration-300 relative min-h-screen">
       <Navbar />
       <BackToTop />
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto pb-20 md:pb-0">
         <section id="home">
           <Hero />
         </section>

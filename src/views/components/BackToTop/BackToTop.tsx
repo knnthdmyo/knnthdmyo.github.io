@@ -29,7 +29,7 @@ const BackToTop = memo(() => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-[9000] w-10 h-10 rounded-full 
+      className={`fixed bottom-28 md:bottom-8 left-1/2 -translate-x-1/2 z-[9000] w-10 h-10 rounded-full 
         bg-white dark:bg-surface-800 
         border border-surface-200 dark:border-surface-700
         text-surface-500 dark:text-surface-400 hover:text-surface-900 dark:hover:text-surface-200
