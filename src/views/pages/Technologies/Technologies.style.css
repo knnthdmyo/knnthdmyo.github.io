@@ -7,10 +7,6 @@
     @apply text-surface-900 dark:text-surface-100;
   }
 
-  .tech-icon {
-    @apply text-xs;
-  }
-
   .tech-name {
     @apply transition-colors duration-300;
   }

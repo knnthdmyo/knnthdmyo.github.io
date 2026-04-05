@@ -3,14 +3,6 @@
     @apply group;
   }
 
-  .project-number {
-    @apply text-5xl md:text-6xl font-extralight text-surface-200 dark:text-surface-800 transition-colors duration-300;
-  }
-
-  .project-card-group:hover .project-number {
-    @apply text-surface-400 dark:text-surface-600;
-  }
-
   .project-title {
     @apply text-lg md:text-xl font-semibold tracking-wide text-surface-900 dark:text-surface-200 transition-colors duration-300;
   }
